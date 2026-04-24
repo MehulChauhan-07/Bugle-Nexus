@@ -36,8 +36,8 @@ const Navbar = () => {
           <Link to="/login" className="text-[14px] px-5 py-2.5 rounded-lg border border-white/20 bg-transparent text-white font-medium hover:bg-white/10 transition-all">
             Log in
           </Link>
-          <Link to="/role-selection" className="text-[14px] px-5 py-2.5 rounded-lg bg-white text-[#111111] font-medium hover:opacity-85 transition-opacity">
-            Let's Connect &rarr;
+          <Link to="/auth" className="text-[14px] px-5 py-2.5 rounded-lg bg-white text-[#111111] font-medium hover:opacity-85 transition-opacity">
+            Get Started &rarr;
           </Link>
 
         </div>
