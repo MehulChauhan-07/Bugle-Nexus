@@ -26,6 +26,8 @@ import Navbar from "./components/Layout/Navbar.jsx";
 import Footer from "./components/Layout/Footer.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect } from "react";
+import { supabase } from "./utils/supabase";
 
 // Routes that have their own full-page layout (no shared Navbar/Footer)
 const STANDALONE_ROUTES = [
@@ -44,8 +46,31 @@ function App() {
   const location = useLocation();
   const isStandalone = STANDALONE_ROUTES.includes(location.pathname);
 
+  // Supabase test integration
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    async function getTodos() {
+      const { data: todos } = await supabase.from("todos").select();
+      if (todos) {
+        setTodos(todos);
+      }
+    }
+    getTodos();
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50">
+      {todos.length > 0 && (
+        <div className="bg-blue-100 p-2 text-center text-sm">
+          <strong>Supabase Data:</strong>{" "}
+          {todos.map((todo) => (
+            <span key={todo.id} className="mr-2">
+              {todo.name}
+            </span>
+          ))}
+        </div>
+      )}
       <ToastContainer position="bottom-right" />
       {!isStandalone && <Navbar />}
       <Routes>
