@@ -44,6 +44,7 @@ const OrgSetup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    // TODO: Replace with actual API call to create organization and admin account
     await new Promise((r) => setTimeout(r, 1200));
     navigate('/admin/dashboard');
   };

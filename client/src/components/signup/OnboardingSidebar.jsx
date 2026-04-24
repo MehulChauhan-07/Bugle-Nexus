@@ -93,12 +93,12 @@ const OnboardingSidebar = ({ steps, currentStep, flowType }) => {
       <div className="px-8 pb-4">
         <div className="flex justify-between text-xs text-gray-400 mb-1">
           <span>Progress</span>
-          <span>{Math.round(((currentStep - 1) / steps.length) * 100)}%</span>
+          <span>{Math.round(((currentStep - 1) / (steps.length - 1)) * 100)}%</span>
         </div>
         <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
           <div
             className="bg-blue-600 h-full rounded-full transition-all duration-500"
-            style={{ width: `${((currentStep - 1) / steps.length) * 100}%` }}
+            style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
           />
         </div>
       </div>
