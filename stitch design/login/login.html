@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login | Bugle.in</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#5c636c",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#404750",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-primary-fixed": "#001a41",
+                        "tertiary": "#9e4300",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "primary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c1c6d6",
+                        "background": "#f8f9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#585f68",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#dce3ed",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-container": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "surface-container": "#edeeef",
+                        "surface-tint": "#005bc0",
+                        "secondary-container": "#d9e0eb",
+                        "on-secondary-fixed": "#151c24",
+                        "on-tertiary-fixed-variant": "#783100",
+                        "outline": "#727785",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d9dadb",
+                        "surface": "#f8f9fa",
+                        "secondary-fixed-dim": "#c0c7d1",
+                        "primary": "#005bbf",
+                        "on-tertiary-container": "#0e0200",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#1a73e8",
+                        "tertiary-container": "#c55500",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-tertiary-fixed": "#341100",
+                        "primary-fixed-dim": "#adc7ff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface-variant": "#414754",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "section-gap": "48px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "container-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "mono-label": ["13px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h3": ["20px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bg-login-gradient {
+            background: linear-gradient(135deg, #0B1F3A 0%, #1E3A8A 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen">
+    <main class="flex min-h-screen overflow-hidden">
+        <!-- Left Panel: Brand & Features -->
+        <section class="hidden lg:flex w-1/2 bg-login-gradient flex-col justify-between p-16 relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div
+                class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-primary opacity-20 rounded-full blur-3xl">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl">
+            </div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-16">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl" data-weight="fill"
+                            style="font-variation-settings: 'FILL' 1;">campaign</span>
+                    </div>
+                    <span class="text-h2 font-h2 text-white tracking-tight">Bugle.in</span>
+                </div>
+                <div class="max-w-lg">
+                    <h1 class="font-h1 text-h1 text-white mb-6 leading-tight">Upskill Your Team. Track Their Growth.
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-white/70 mb-10">The most comprehensive Learning Management
+                        System for modern enterprise teams. Streamline training workflows and drive measurable outcomes.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white" data-icon="send">send</span>
+                            </div>
+                            <div>
+                                <h3 class="font-h3 text-body-lg text-white font-semibold">Assign courses instantly</h3>
+                                <p class="font-body-md text-white/60">Automated enrollments based on employee roles and
+                                    skill gaps.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white"
+                                    data-icon="query_stats">query_stats</span>
+                            </div>
+                            <div>
+                                <h3 class="font-h3 text-body-lg text-white font-semibold">Track progress &amp;
+                                    attendance</h3>
+                                <p class="font-body-md text-white/60">Real-time dashboards for monitoring individual and
+                                    department engagement.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white" data-icon="article">article</span>
+                            </div>
+                            <div>
+                                <h3 class="font-h3 text-body-lg text-white font-semibold">Generate certification reports
+                                </h3>
+                                <p class="font-body-md text-white/60">Audit-ready documentation and automated
+                                    certificate issuance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mini Analytics Card -->
+        </section>
+        <!-- Right Panel: Login Form -->
+        <section class="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-8 lg:p-24 overflow-y-auto">
+            <div class="w-full max-w-md">
+                <!-- Header -->
+                <div class="mb-10 text-center lg:text-left">
+                    <h2 class="font-h1 text-h1 text-on-surface mb-2">Welcome Back</h2>
+                    <p class="font-body-lg text-on-secondary-container">Log in to your enterprise dashboard</p>
+                </div>
+                <!-- Form -->
+                <form action="#" class="space-y-6" method="POST">
+                    <!-- Role Selector -->
+                    <div>
+                        <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2">Select Your
+                            Role</label>
+                        <div class="flex p-1 bg-surface-container rounded-xl gap-1">
+                            <button
+                                class="flex-1 py-2 text-label-sm font-semibold rounded-lg bg-white shadow-sm text-primary transition-all"
+                                type="button">Admin</button>
+                            <button
+                                class="flex-1 py-2 text-label-sm font-semibold rounded-lg text-on-secondary-container hover:bg-surface-variant transition-all"
+                                type="button">HR Manager</button>
+                            <button
+                                class="flex-1 py-2 text-label-sm font-semibold rounded-lg text-on-secondary-container hover:bg-surface-variant transition-all"
+                                type="button">Employee</button>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div>
+                        <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="email">Email
+                            Address</label>
+                        <input
+                            class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
+                            id="email" name="email" placeholder="name@company.com" type="email" />
+                    </div>
+                    <!-- Password -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block font-label-sm text-label-sm text-on-surface-variant"
+                                for="password">Password</label>
+                            <a class="text-label-sm font-semibold text-primary hover:underline" href="#">Forgot
+                                Password?</a>
+                        </div>
+                        <div class="relative">
+                            <input
+                                class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
+                                id="password" name="password" placeholder="••••••••" type="password" />
+                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-secondary-container"
+                                type="button">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    data-icon="visibility">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Remember Me -->
+                    <div class="flex items-center">
+                        <input class="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary"
+                            id="remember-me" name="remember-me" type="checkbox" />
+                        <label class="ml-3 block font-body-md text-on-surface-variant" for="remember-me">Remember me for
+                            30 days</label>
+                    </div>
+                    <!-- Action Button -->
+                    <button
+                        class="w-full bg-primary text-white font-h3 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
+                        type="submit">
+                        Login to Dashboard
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </form>
+                <!-- SSO Divider -->
+                <div class="my-8 flex items-center gap-4">
+                    <div class="h-px flex-1 bg-outline-variant"></div>
+                    <span class="font-mono-label text-[11px] text-on-secondary-container tracking-widest uppercase">Or
+                        Continue With</span>
+                    <div class="h-px flex-1 bg-outline-variant"></div>
+                </div>
+                <!-- SSO Buttons -->
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 px-4 border border-outline-variant rounded-lg hover:bg-surface transition-all">
+                        <img alt="" class="w-5 h-5" data-alt="Google colorful icon logo on transparent background"
+                            logo\".svg"=""
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD83uutNzLhSx2CNJ3bdg-8mS-nMQ6dWwcY5cRM-bl-EOIv51EUkMMF_pLz5YCyTZGipsD9LsIK2oPpry_72dP5QSWiuDidCiQ6Z1ASTds386RjJcbmIUUzGeqRatAtLqpergwnO0TwvpDPCtxYuMRX4kjKFopU7pt8WKNfq0FUK1jDg6ScNl3hSGolbeYkHBBZ7Pi3GorZzoKW7luuwkLqkrTOCaSNmOFMaD47sTb9g4JhylNwD487--8QInwQlMyj0cE_umpCCwN-" />
+                        <span class="font-body-md font-semibold">Google</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 px-4 border border-outline-variant rounded-lg hover:bg-surface transition-all">
+                        <img alt="" class="w-5 h-5" data-alt="Microsoft square logo with four colored panes"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlmEP2sHiqskoJJdgIwM61gaJGiJWpSbUJcmcpjDsg9Kf1lvIZw8JaqpSDu8hL85Kbs_eMx98_gT6r91myPROYe63h-NDAaQPLwYppNhbYLwWv94-NDe_Ja-B2iLB5KbStZiLbBaC12OWbPVITejY2kvUbZ51gZknWxprjFos9u3mezhlF9BZU3zwScAoGGOuWaRVLvgZ0hZwTJcQ9Z880cf-n9mmcX0ebgt_S0LquOO_PwaPq6hp0y47gwe1XlqTuW4JJcRcM_sYQ" />
+                        <span class="font-body-md font-semibold">Microsoft</span>
+                    </button>
+                </div>
+                <!-- Demo Credentials -->
+                <div class="p-4 bg-surface-container-low rounded-xl border border-surface-variant mb-12">
+                    <div class="flex items-center gap-2 mb-2 text-on-surface font-semibold text-label-sm">
+                        <span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+                        Demo Credentials
+                    </div>
+                    <div class="space-y-1 text-[11px] font-body-md text-on-surface-variant">
+                        <p><span class="font-bold">Admin:</span> ravi.kamdar@bugle.in</p>
+                        <p><span class="font-bold">HR:</span> kunjal.patel@bugle.in</p>
+                        <p><span class="font-bold">Employee:</span> jeel.mungra@bugle.in</p>
+                    </div>
+                </div>
+                <!-- Footer Links -->
+                <div class="text-center">
+                    <p class="font-body-md text-on-secondary-container mb-6">
+                        New organization? <a class="text-primary font-semibold hover:underline" href="#">Contact
+                            admin</a> to request access
+                    </p>
+                    <div class="flex justify-center gap-6 font-label-sm text-on-surface-variant">
+                        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                        <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+                        <a class="hover:text-primary transition-colors" href="#">Support</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

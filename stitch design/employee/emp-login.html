@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Academic Curator (Bugle.in)</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#45474c",
+              "error": "#ba1a1a",
+              "surface-bright": "#f7f9fb",
+              "primary-fixed": "#d7e3fc",
+              "outline-variant": "#c5c6cd",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "primary": "#000000",
+              "tertiary-fixed": "#ffdcc2",
+              "surface-container-high": "#e6e8ea",
+              "primary-fixed-dim": "#bbc7df",
+              "secondary-container": "#316bf3",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary": "#000000",
+              "outline": "#75777d",
+              "on-primary-fixed-variant": "#3c475b",
+              "on-primary-fixed": "#101c2e",
+              "on-background": "#191c1e",
+              "inverse-primary": "#bbc7df",
+              "on-error": "#ffffff",
+              "on-primary-container": "#79849b",
+              "background": "#f7f9fb",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed": "#00174b",
+              "on-secondary-container": "#fefcff",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-on-surface": "#eff1f3",
+              "surface-container": "#eceef0",
+              "on-tertiary-fixed-variant": "#5c412b",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "surface-tint": "#535f74",
+              "on-secondary-fixed-variant": "#003ea8",
+              "secondary": "#0051d5",
+              "inverse-surface": "#2d3133",
+              "tertiary-fixed-dim": "#e5bfa2",
+              "on-tertiary-fixed": "#2b1705",
+              "primary-container": "#101c2e",
+              "on-tertiary-container": "#9e7d64",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#2b1705"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<main class="flex-grow flex flex-col md:flex-row">
+<!-- Left Panel (40%) -->
+<section class="md:w-[40%] bg-primary-container p-8 md:p-12 flex flex-col justify-between text-white relative overflow-hidden">
+<!-- Glass Overlay Decoration -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-16">
+<span class="text-2xl font-extrabold tracking-tight font-headline">Bugle.in</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 font-headline tracking-tight">
+                    Upskill Your Team. Track Their Growth.
+                </h1>
+<p class="text-lg text-on-primary-container mb-12 font-body max-w-md">
+                    One platform for onboarding, compliance training, and professional development.
+                </p>
+<ul class="space-y-6">
+<li class="flex items-center gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-surface-container-lowest font-medium">Assign courses to teams instantly</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-surface-container-lowest font-medium">Track completion and quiz scores</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-surface-container-lowest font-medium">Generate performance reports</span>
+</li>
+</ul>
+</div>
+<!-- Illustration Container -->
+<div class="relative z-10 mt-12 bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-semibold opacity-80">Training Progress Chart</span>
+<span class="material-symbols-outlined opacity-60" data-icon="insights">insights</span>
+</div>
+<div class="h-32 flex items-end gap-2 px-2">
+<div class="flex-1 bg-secondary-container/40 rounded-t-lg h-[40%]"></div>
+<div class="flex-1 bg-secondary-container/60 rounded-t-lg h-[65%]"></div>
+<div class="flex-1 bg-secondary rounded-t-lg h-[90%]"></div>
+<div class="flex-1 bg-secondary-container/50 rounded-t-lg h-[55%]"></div>
+<div class="flex-1 bg-secondary-container/80 rounded-t-lg h-[75%]"></div>
+</div>
+<div class="mt-4 pt-4 border-t border-white/10 flex justify-between text-[10px] uppercase tracking-wider opacity-60">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+</div>
+</div>
+</section>
+<!-- Right Panel (60%) -->
+<section class="md:w-[60%] bg-surface flex items-center justify-center p-6 md:p-12">
+<div class="w-full max-w-md">
+<!-- Mobile Logo -->
+<div class="md:hidden flex justify-center mb-8">
+<span class="text-2xl font-extrabold text-primary font-headline">Bugle.in</span>
+</div>
+<div class="mb-10 text-center md:text-left">
+<h2 class="text-3xl font-extrabold text-on-surface mb-2 font-headline">Welcome Back</h2>
+<p class="text-on-surface-variant font-body">Log in to your corporate training dashboard</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2 font-label" for="email">Email Address</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all placeholder:text-outline/50" id="email" placeholder="name@company.com" type="email"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block text-sm font-semibold text-on-surface font-label" for="password">Password</label>
+<a class="text-sm font-semibold text-secondary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all placeholder:text-outline/50" id="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex items-center">
+<input class="w-4 h-4 text-secondary border-outline-variant rounded focus:ring-secondary" id="remember" type="checkbox"/>
+<label class="ml-2 text-sm text-on-surface-variant font-medium" for="remember">Remember me for 30 days</label>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-secondary to-secondary-container text-white font-bold rounded-lg shadow-lg shadow-secondary/20 hover:shadow-xl hover:scale-[1.01] active:scale-[0.98] transition-all" type="submit">
+                        Login to Dashboard
+                    </button>
+<div class="relative flex items-center py-4">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-xs font-bold text-outline uppercase tracking-widest">or continue with</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 px-4 border border-outline-variant/30 rounded-lg hover:bg-surface-container-low transition-colors group" type="button">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform" data-icon="google">mail</span>
+<span class="text-sm font-bold text-on-surface-variant">Google SSO</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 border border-outline-variant/30 rounded-lg hover:bg-surface-container-low transition-colors group" type="button">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform" data-icon="work">work</span>
+<span class="text-sm font-bold text-on-surface-variant">Microsoft</span>
+</button>
+</div>
+</form>
+<p class="mt-10 text-center text-sm text-on-surface-variant font-body">
+                    New company? <a class="text-secondary font-bold hover:underline" href="#">Contact admin to get access</a>
+</p>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-8 py-8 bg-surface-container-low border-t border-outline-variant/15">
+<div class="mb-4 md:mb-0">
+<span class="text-lg font-bold text-on-surface font-headline">Academic Curator</span>
+<p class="text-xs text-on-surface-variant mt-1 font-body">© 2024 Academic Curator. All rights reserved.</p>
+</div>
+<div class="flex gap-6 text-sm font-normal font-body">
+<a class="text-outline hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="text-outline hover:text-secondary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="text-outline hover:text-secondary transition-colors duration-200" href="#">Cookie Settings</a>
+<a class="text-outline hover:text-secondary transition-colors duration-200" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>

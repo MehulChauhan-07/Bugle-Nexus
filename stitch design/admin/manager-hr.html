@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bugle.in | Admin Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#000000",
+                        "outline-variant": "#c5c6cd",
+                        "surface-variant": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#2b1705",
+                        "surface": "#f7f9fb",
+                        "primary-fixed-dim": "#bbc7df",
+                        "on-background": "#191c1e",
+                        "secondary": "#0051d5",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#316bf3",
+                        "primary-container": "#101c2e",
+                        "on-surface-variant": "#45474c",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bbc7df",
+                        "primary": "#000000",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d7e3fc",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#5c412b",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "secondary-fixed": "#dbe1ff",
+                        "outline": "#75777d",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#79849b",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed": "#2b1705",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#9e7d64",
+                        "on-primary-fixed": "#101c2e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#e5bfa2",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#3c475b",
+                        "surface-tint": "#535f74",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdcc2",
+                        "inverse-surface": "#2d3133"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c5c6cd;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased">
+    <!-- SideNavBar (Authority: JSON & Design System) -->
+    <aside
+        class="fixed left-0 top-0 h-full flex flex-col py-6 bg-[#0A1628] dark:bg-[#050B14] h-screen w-72 border-r border-transparent shadow-xl shadow-black/20 z-50">
+        <div class="px-8 mb-10 flex items-center gap-2">
+            <span class="text-2xl font-extrabold text-white tracking-tight">Bugle.in</span>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="bg-[#316bf3] text-white rounded-lg px-4 py-3 mx-4 flex items-center gap-3 transition-all scale-95 duration-150 ease-in-out"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-medium text-sm">Dashboard</span>
+            </a>
+            <a class="text-slate-400 hover:text-white hover:bg-white/5 px-4 py-3 mx-4 flex items-center gap-3 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                <span class="font-medium text-sm">Team Progress</span>
+            </a>
+            <a class="text-slate-400 hover:text-white hover:bg-white/5 px-4 py-3 mx-4 flex items-center gap-3 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+                <span class="font-medium text-sm">Course Library</span>
+            </a>
+            <a class="text-slate-400 hover:text-white hover:bg-white/5 px-4 py-3 mx-4 flex items-center gap-3 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="verified">verified</span>
+                <span class="font-medium text-sm">Certifications</span>
+            </a>
+            <a class="text-slate-400 hover:text-white hover:bg-white/5 px-4 py-3 mx-4 flex items-center gap-3 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                <span class="font-medium text-sm">Analytics</span>
+            </a>
+            <a class="text-slate-400 hover:text-white hover:bg-white/5 px-4 py-3 mx-4 flex items-center gap-3 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span class="font-medium text-sm">Settings</span>
+            </a>
+        </nav>
+        <div class="px-6 mt-auto">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div class="flex items-center gap-3 mb-3">
+                    <img alt="HR Administrator Portrait"
+                        class="w-10 h-10 rounded-full object-cover border-2 border-[#316bf3]"
+                        data-alt="HR Administrator Professional Headshot"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgnHgjEZUWqQuotQC1whYqDPXdm3nI8fBTcbH75s5Q-_PBjQclwYIWXsFg8x671FEqlR0IwHwz59sEdgMuboiOuL5IcpkJRc55ILqtMRs3bmPKkvMPzCdmOByycq3J-FQD8K7h8IuQ-JGCgDHdlbZhJaBk6HfWjs5OB-ZmRvsAep7OraiFco5pfZn780XbDeLwT-H-jL1px6loXQIRxdRjWKIDEahPJAqlDDrC9eAxDcIXAe4kvuJWTaL_yrnZKUOFYFa5yVVUMHiB" />
+                    <div>
+                        <p class="text-white text-sm font-bold leading-tight">Academic Curator</p>
+                        <p class="text-slate-400 text-xs">Enterprise Admin</p>
+                    </div>
+                </div>
+                <button
+                    class="w-full py-2 bg-[#316bf3] hover:bg-[#0051d5] text-white text-xs font-bold rounded-lg transition-colors">
+                    Generate Report
+                </button>
+            </div>
+        </div>
+    </aside>
+    <!-- TopNavBar (Authority: JSON & Design System) -->
+    <header
+        class="sticky top-0 z-40 flex justify-between items-center px-8 py-4 w-[calc(100%-18rem)] ml-72 bg-white/80 dark:bg-[#f7f9fb]/5 backdrop-blur-md flat no shadows">
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg">
+                <span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="group">group</span>
+                <select
+                    class="bg-transparent border-none text-sm font-semibold text-on-surface focus:ring-0 cursor-pointer">
+                    <option>Marketing Team</option>
+                    <option>Engineering</option>
+                    <option>Sales</option>
+                </select>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg">
+                <span class="material-symbols-outlined text-on-surface-variant text-sm"
+                    data-icon="calendar_today">calendar_today</span>
+                <span class="text-sm font-medium">This Month</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button
+                class="px-4 py-2 border border-outline-variant rounded-lg text-sm font-semibold hover:bg-surface-container-high transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                Export Report
+            </button>
+            <div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+                <button class="text-on-surface-variant hover:text-secondary transition-colors">
+                    <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                </button>
+                <button class="text-on-surface-variant hover:text-secondary transition-colors">
+                    <span class="material-symbols-outlined" data-icon="help">help</span>
+                </button>
+                <img alt="Admin Avatar" class="w-8 h-8 rounded-full border border-secondary"
+                    data-alt="Admin profile picture circle"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3BSRDjHGytv3qpf3krOcuPiOQANpWM5Ff6FPJ4Jsxp89wHcQVuogI601HpmGb0IeaYq_i2LsTV1lRQm2mRx_KQ4wFs5kMM7U2gJ04Lqd5OF5gR64u2X_tn0MP844CSAQdvPs2pquT5Li2xEvjzh-05AA8TehPYdFMCn80SvBXeSKqnr_UEjE7ICUsKTW1KK51rVQrzzLwZ1PAqJyHJO7Xeq2v_5w_J8-R569Ln-Zhacb6oGMufEonesOpow7Bb4ErqoUUm0pqBX-y" />
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 h-[1px] w-full bg-[#f2f4f6] dark:bg-[#191c1e]"></div>
+    </header>
+    <!-- Main Canvas -->
+    <main class="ml-72 p-8 max-w-[1600px] mx-auto space-y-8">
+        <!-- Row 1: KPI Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div
+                class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Total Employees</p>
+                <div class="flex items-end justify-between">
+                    <h3 class="text-3xl font-extrabold font-headline">24</h3>
+                    <span class="p-2 bg-secondary/10 text-secondary rounded-lg material-symbols-outlined"
+                        data-icon="person">person</span>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Courses Assigned</p>
+                <div class="flex items-end justify-between">
+                    <h3 class="text-3xl font-extrabold font-headline">8</h3>
+                    <span class="p-2 bg-secondary/10 text-secondary rounded-lg material-symbols-outlined"
+                        data-icon="assignment">assignment</span>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Avg Completion</p>
+                <div class="flex items-end justify-between">
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-3xl font-extrabold font-headline">72%</h3>
+                        <span class="text-xs font-bold text-green-600 flex items-center">
+                            <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            4%
+                        </span>
+                    </div>
+                    <span class="p-2 bg-green-50 text-green-600 rounded-lg material-symbols-outlined"
+                        data-icon="check_circle">check_circle</span>
+                </div>
+            </div>
+            <div
+                class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm ring-1 ring-error/5">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Trainings Overdue</p>
+                <div class="flex items-end justify-between">
+                    <h3 class="text-3xl font-extrabold font-headline text-error">5</h3>
+                    <span class="p-2 bg-error/10 text-error rounded-lg material-symbols-outlined" data-icon="warning"
+                        style="font-variation-settings: 'FILL' 1;">warning</span>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Certificates Issued
+                </p>
+                <div class="flex items-end justify-between">
+                    <h3 class="text-3xl font-extrabold font-headline">11</h3>
+                    <span class="p-2 bg-secondary/10 text-secondary rounded-lg material-symbols-outlined"
+                        data-icon="workspace_premium">workspace_premium</span>
+                </div>
+            </div>
+        </section>
+        <!-- Row 2: Charts (Bento Style) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Donut Chart Left -->
+            <div class="lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+                <h4 class="text-lg font-bold font-headline mb-8">Team Completion Overview</h4>
+                <div class="relative w-48 h-48 mx-auto mb-8">
+                    <!-- Pure CSS Donut Representation -->
+                    <div
+                        class="w-full h-full rounded-full border-[18px] border-slate-100 flex items-center justify-center relative">
+                        <div
+                            class="absolute inset-0 rounded-full border-[18px] border-transparent border-t-green-500 border-r-green-500 border-b-green-500 transform rotate-12">
+                        </div>
+                        <div
+                            class="absolute inset-0 rounded-full border-[18px] border-transparent border-l-secondary transform -rotate-12">
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-extrabold leading-none">72%</p>
+                            <p class="text-[10px] font-bold text-on-surface-variant uppercase mt-1">Overall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="font-medium">Completed</span>
+                        </div>
+                        <span class="font-bold">72%</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-secondary"></div>
+                            <span class="font-medium">In Progress</span>
+                        </div>
+                        <span class="font-bold">18%</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-slate-300"></div>
+                            <span class="font-medium">Not Started</span>
+                        </div>
+                        <span class="font-bold">10%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Bar Chart Right -->
+            <div class="lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+                <div class="flex items-center justify-between mb-8">
+                    <h4 class="text-lg font-bold font-headline">Course-wise Completion Rate</h4>
+                    <span class="text-xs font-bold text-secondary uppercase cursor-pointer hover:underline">View
+                        Detailed Report</span>
+                </div>
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Information Security 2024</span>
+                            <span class="text-secondary">92%</span>
+                        </div>
+                        <div class="w-full bg-surface-container-low h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-secondary h-full rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Compliance &amp; Ethics</span>
+                            <span class="text-secondary">84%</span>
+                        </div>
+                        <div class="w-full bg-surface-container-low h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-secondary h-full rounded-full" style="width: 84%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Modern Workplace Tools</span>
+                            <span class="text-secondary">65%</span>
+                        </div>
+                        <div class="w-full bg-surface-container-low h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Diversity &amp; Inclusion</span>
+                            <span class="text-secondary">48%</span>
+                        </div>
+                        <div class="w-full bg-surface-container-low h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-secondary h-full rounded-full" style="width: 48%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Leadership Essentials</span>
+                            <span class="text-secondary">31%</span>
+                        </div>
+                        <div class="w-full bg-surface-container-low h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-secondary h-full rounded-full" style="width: 31%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Row 3: Table -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden">
+            <div class="p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <h4 class="text-lg font-bold font-headline">Individual Training Status</h4>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
+                            data-icon="search">search</span>
+                        <input
+                            class="pl-10 pr-4 py-2 text-sm bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary w-64"
+                            placeholder="Search employee..." type="text" />
+                    </div>
+                    <select
+                        class="bg-surface-container-low border-none text-sm font-semibold rounded-lg focus:ring-2 focus:ring-secondary py-2 px-4 cursor-pointer">
+                        <option>All Departments</option>
+                        <option>Marketing</option>
+                        <option>Creative</option>
+                        <option>Content</option>
+                    </select>
+                </div>
+            </div>
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr
+                        class="bg-surface-container-low text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                        <th class="px-8 py-4">Employee Name</th>
+                        <th class="px-6 py-4">Department</th>
+                        <th class="px-6 py-4">Assigned</th>
+                        <th class="px-6 py-4">Completed</th>
+                        <th class="px-6 py-4">Overdue</th>
+                        <th class="px-6 py-4">Last Active</th>
+                        <th class="px-8 py-4 text-right">View</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10">
+                    <tr class="hover:bg-surface-container-low/50 transition-colors">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center gap-3">
+                                <img alt="Employee avatar" class="w-8 h-8 rounded-full" data-alt="Portrait of employee"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7HgaFLz3rmDG9Ji9kb6npuyHYIvcg6y5z0rKr-snJ4tqI2kHmGCC3d9UJSIZF9wyFfIvdON126xsxMB2A4O6yqXASsrVlS3NgJcr4Kz6gB6mOv6AdoEpqwadbDSrvv11VNgAObowg1VM9Ic2LTa2BIAS3BZ_o3pbETtATfxHV9vLhfAsz1I-hn4446RJu0pl3eMvN-oqBQF4k95JDPuTfgTr2zGSmAt5aoEYm-qICamwAskdUYR7aKvBONjC_vZXdCgyACeeihQ5z" />
+                                <span class="font-bold text-sm">Elena Smith</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm">Marketing</td>
+                        <td class="px-6 py-4 text-sm font-medium">8</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-bold rounded">6</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-sm">0</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant">2h ago</td>
+                        <td class="px-8 py-4 text-right">
+                            <button class="text-secondary hover:underline text-sm font-bold">Details</button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center gap-3">
+                                <img alt="Employee avatar" class="w-8 h-8 rounded-full" data-alt="Portrait of employee"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAdc-nEDEQC1zoSG7YrcQOiCakIYl8XvrzcASI-M62aIJPIaXU6mUJRE6HmmsuvTg0vsEKATfgyqLLfTcpNa0eajt73ONfLipWQi-3xLZIS5GdgpiK07RKiu8XXtRKXCuXLG-dO633VWmWY_m4WLT9iewJ9qBvKBySmWNAbdCmx2NXwU3ryp3vFZju9MdyDQumazNyGyG44TWgWOGhdwe2o3hJxZoOS5u2-oHZKyFARGiT5MHfrpkQYuhsdlMErWgwN8AAw6LJED8K" />
+                                <span class="font-bold text-sm">James Reed</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm">Marketing</td>
+                        <td class="px-6 py-4 text-sm font-medium">8</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-bold rounded">4</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-error-container text-error text-xs font-bold rounded">2</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant">1d ago</td>
+                        <td class="px-8 py-4 text-right">
+                            <button class="text-secondary hover:underline text-sm font-bold">Details</button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center gap-3">
+                                <img alt="Employee avatar" class="w-8 h-8 rounded-full" data-alt="Portrait of employee"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VoIYnLuFadaL9Df9DoG1UXnLubMddIEZqAnEvNphkmWLZQcAwByaSg2qBFdPTvhTTWZSKUoZHOMkKLcBEpteULuUswPTpCSPDZxrW0EtL287EfMcF8Z98qO90BSbIM_uUvJO7ZqyDffYquxyF-Xg1h0fiQSV-78dlhdsIK5BWBe3W-jdGppgepOBIl4eWC6nZY1YdOPbS4F1rNkghO0zcHUJ6WhnlOmhrZBRRDAkq3y50FAGs8xqbCcEMWOsDbywb_eXqmcHoLsT" />
+                                <span class="font-bold text-sm">Aisha Khan</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm">Creative</td>
+                        <td class="px-6 py-4 text-sm font-medium">10</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-bold rounded">10</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-sm">0</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant">Active now</td>
+                        <td class="px-8 py-4 text-right">
+                            <button class="text-secondary hover:underline text-sm font-bold">Details</button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center gap-3">
+                                <img alt="Employee avatar" class="w-8 h-8 rounded-full" data-alt="Portrait of employee"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyy3oGSXMdd7I37haTLjh4q0dm4izXfV1EsWcgP-wO218Lxg4TN0RrSf_IkYTLqibCtwRdtVqI1H8QB9e5HHLQpy5_-wjtaENMh2b2OY9POwRjx9I-yPyOcFUVkHicPhtsHkuOq-gWJKGCyxzhstdDoSIm5bjWD0AdqdGX3UHPgKIJD59ztchYsF4vP5NFuRi3r4e_nKvAKwcGBVRZJSFQB3UqOto9OqaFO64xsxLr3FduHTV_fdAPXwKcSNv-TWfjBozzDRUhKSZ-" />
+                                <span class="font-bold text-sm">Liam Brown</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm">Marketing</td>
+                        <td class="px-6 py-4 text-sm font-medium">8</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-bold rounded">2</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-error-container text-error text-xs font-bold rounded">1</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant">3h ago</td>
+                        <td class="px-8 py-4 text-right">
+                            <button class="text-secondary hover:underline text-sm font-bold">Details</button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors">
+                        <td class="px-8 py-4">
+                            <div class="flex items-center gap-3">
+                                <img alt="Employee avatar" class="w-8 h-8 rounded-full" data-alt="Portrait of employee"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFA06Opet0uhRz0rqzm14KaWY0B2D73aOe2n4g1Q2Kup1Tc8vhDYi3c0vJ1xy8amfe3UFLPFp_BcZ2_Wl4dC2cRVSZFBU5MqZzcjP81MPPg_Ax6tONB83gmeYpiPkyjwB1EzkEOT_ROeekEVITKRcHVXEHC1GnFJdWs91qQP9mNF2wKNNAZcjSj5QuX7Zu1zndgGuSShEYtS6f5G4kdDVPx8F0FQtJYfsDhEL5OCLmXPtaltCn2vlzxOXapihjOrqqLlr1dVKMOIrR" />
+                                <span class="font-bold text-sm">Sarah Olsen</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm">Marketing</td>
+                        <td class="px-6 py-4 text-sm font-medium">8</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-bold rounded">7</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-sm">0</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant">4d ago</td>
+                        <td class="px-8 py-4 text-right">
+                            <button class="text-secondary hover:underline text-sm font-bold">Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Row 4: Panels -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10">
+            <!-- Overdue Trainings Alert -->
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+                <div class="flex items-center gap-2 mb-8">
+                    <span class="material-symbols-outlined text-error" data-icon="error"
+                        style="font-variation-settings: 'FILL' 1;">error</span>
+                    <h4 class="text-lg font-bold font-headline">Overdue Trainings Alert</h4>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="p-4 bg-error/5 rounded-lg flex items-center justify-between group hover:bg-error/10 transition-colors">
+                        <div>
+                            <p class="font-bold text-sm">James Reed</p>
+                            <p class="text-xs text-on-surface-variant">InfoSec 2024 • <span
+                                    class="text-error font-bold">4 days overdue</span></p>
+                        </div>
+                        <button
+                            class="px-3 py-1.5 bg-error text-white text-xs font-bold rounded-lg hover:bg-red-700 transition-colors">Send
+                            Reminder</button>
+                    </div>
+                    <div
+                        class="p-4 bg-error/5 rounded-lg flex items-center justify-between group hover:bg-error/10 transition-colors">
+                        <div>
+                            <p class="font-bold text-sm">Liam Brown</p>
+                            <p class="text-xs text-on-surface-variant">Modern Workplace • <span
+                                    class="text-error font-bold">2 days overdue</span></p>
+                        </div>
+                        <button
+                            class="px-3 py-1.5 bg-error text-white text-xs font-bold rounded-lg hover:bg-red-700 transition-colors">Send
+                            Reminder</button>
+                    </div>
+                    <div
+                        class="p-4 bg-error/5 rounded-lg flex items-center justify-between group hover:bg-error/10 transition-colors">
+                        <div>
+                            <p class="font-bold text-sm">James Reed</p>
+                            <p class="text-xs text-on-surface-variant">Leadership Essentials • <span
+                                    class="text-error font-bold">1 day overdue</span></p>
+                        </div>
+                        <button
+                            class="px-3 py-1.5 bg-error text-white text-xs font-bold rounded-lg hover:bg-red-700 transition-colors">Send
+                            Reminder</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Upcoming Training Deadlines -->
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary" data-icon="event">event</span>
+                        <h4 class="text-lg font-bold font-headline">Upcoming Deadlines</h4>
+                    </div>
+                    <span class="text-xs font-bold text-on-surface-variant uppercase">Next 7 Days</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-start gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors">
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[44px] h-11 bg-secondary/5 rounded-lg">
+                            <span class="text-[10px] font-bold text-secondary uppercase leading-none">Oct</span>
+                            <span class="text-lg font-extrabold text-secondary leading-none">24</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm">Compliance &amp; Ethics</p>
+                            <p class="text-xs text-on-surface-variant">12 Employees Remaining</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors">
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[44px] h-11 bg-slate-100 rounded-lg">
+                            <span
+                                class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Oct</span>
+                            <span class="text-lg font-extrabold text-on-surface leading-none">26</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm">Product Deep Dive</p>
+                            <p class="text-xs text-on-surface-variant">Marketing &amp; Sales Teams</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors">
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[44px] h-11 bg-slate-100 rounded-lg">
+                            <span
+                                class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Oct</span>
+                            <span class="text-lg font-extrabold text-on-surface leading-none">28</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm">Diversity Inclusion Webinar</p>
+                            <p class="text-xs text-on-surface-variant">All Staff Required</p>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="w-full mt-6 py-2.5 border border-dashed border-outline-variant rounded-lg text-xs font-bold text-on-surface-variant hover:border-secondary hover:text-secondary transition-all">
+                    + Add New Milestone
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

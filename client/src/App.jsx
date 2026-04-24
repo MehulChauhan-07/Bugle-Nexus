@@ -2,8 +2,7 @@ import React from "react";
 // import './App.css'
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Result from "./pages/Result.jsx";
-import BuyCredit from "./pages/BuyCredit.jsx";
+// import Result from "./pages/Result.jsx";
 import Login from "./pages/Login.jsx";
 import RoleSelection from "./pages/RoleSelection.jsx";
 import EmployeeForm from "./pages/EmployeeForm.jsx";
@@ -21,8 +20,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/result" element={<Result />} />
-        <Route path="/pricing" element={<BuyCredit />} />
+        {/* <Route path="/result" element={<Result />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/role-selection" element={<RoleSelection />} />
         <Route path="/sign-up/employee" element={<EmployeeForm />} />

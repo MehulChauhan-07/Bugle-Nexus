@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bugle.in | Learner Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#414754",
+                        "on-primary-container": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-dim": "#d9dadb",
+                        "on-secondary-container": "#5c636c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#dce3ed",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary-container": "#c55500",
+                        "secondary-fixed-dim": "#c0c7d1",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed-variant": "#783100",
+                        "on-tertiary-container": "#0e0200",
+                        "on-primary-fixed": "#001a41",
+                        "background": "#f8f9fa",
+                        "primary": "#005bbf",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#585f68",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#d9e0eb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#005bc0",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#404750",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary": "#9e4300",
+                        "inverse-primary": "#adc7ff",
+                        "primary-container": "#1a73e8",
+                        "surface-bright": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#151c24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "container-padding": "32px",
+                        "stack-md": "16px",
+                        "section-gap": "48px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active {
+            background-color: #d8e2ff;
+            color: #004493;
+            font-weight: 600;
+            border-left: 4px solid #005bbf;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+        .kpi-shadow {
+            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E5E7EB;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex">
+<!-- Sidebar Navigation (SideNavBar Component) -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-gray-50 border-r border-gray-200 flex flex-col py-6 gap-2 z-40">
+<div class="px-8 mb-8">
+<h1 class="text-lg font-black text-blue-600">Bugle.in</h1>
+<p class="text-xs text-on-surface-variant mt-1">Enterprise Learning</p>
+</div>
+<div class="px-4 mb-4">
+<div class="flex items-center gap-3 px-4 py-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white overflow-hidden">
+<img alt="User avatar" data-alt="professional minimalist avatar of a young learner with neutral expression and clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaRqhazTjVjOSWTam2Hmzq0Ku7jzyrqk5HFpO8QGuLdH4SLcWUU0f-bZCdST92TCZVqZlZiYPTMsuqbonNtdTA4juYIpSd05quAhCUMTEZl1MIkuOu4JQcmhWkw4s2qxcO3bRZ7za6gwVA9jF-jlf4xSwMuSkBkb9YE4UfTSDcqAiRvoUM8zWrbYtLaSlqRYMREX_SeZ504cjdudaVI_DmyMueAo_48Bu2AxV275zMrkJBNfnPAZ8V9vML380OmwyW4syB01SNF4Em"/>
+</div>
+<div>
+<p class="font-label-sm text-sm text-on-surface font-semibold">Onboarding</p>
+<p class="text-xs text-on-surface-variant">Complete your setup</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 bg-blue-50 text-blue-700 font-semibold rounded-lg mx-2 px-4 py-3 border-l-4 border-blue-600 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-label-sm">Role Selection</span>
+</div>
+<div class="flex items-center gap-3 text-gray-500 px-4 py-3 mx-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-label-sm">Profile Setup</span>
+</div>
+<div class="flex items-center gap-3 text-gray-500 px-4 py-3 mx-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-sm">Training Path</span>
+</div>
+<div class="flex items-center gap-3 text-gray-500 px-4 py-3 mx-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm">Verification</span>
+</div>
+</nav>
+<div class="mt-auto px-4 space-y-2">
+<button class="w-full bg-white border border-gray-200 py-2.5 rounded-lg text-sm font-medium text-on-surface hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                Get Help
+            </button>
+<div class="flex items-center gap-2 px-4 py-2 text-xs text-gray-500 hover:text-blue-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-base" data-icon="policy">policy</span>
+<span>Privacy Policy</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[280px] min-h-screen flex flex-col">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center h-16 px-8 w-full sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tight text-blue-600">Bugle.in</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-blue-600 font-bold border-b-2 border-blue-600 font-label-sm" href="#">Explore</a>
+<a class="text-gray-600 hover:text-blue-600 transition-colors font-label-sm" href="#">Pricing</a>
+<a class="text-gray-600 hover:text-blue-600 transition-colors font-label-sm" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-gray-600 hover:text-blue-600 font-medium text-sm transition-all active:scale-95 duration-150">Contact Sales</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg text-sm font-medium hover:brightness-90 transition-all active:scale-95 duration-150">Sign In</button>
+</div>
+</header>
+<!-- Registration Flow Content -->
+<div class="flex-1 p-12 max-w-[1200px] mx-auto w-full">
+<!-- Step Header -->
+<div class="mb-12">
+<h2 class="text-h1 font-h1 text-on-surface">Join the Bugle.in Community</h2>
+<p class="text-body-lg text-on-surface-variant mt-2 max-w-2xl">Start your learning journey with a personalized curriculum tailored to your career goals.</p>
+</div>
+<!-- Multi-step Content (Visualized as a unified flow for Step 1-3) -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Forms/Selection -->
+<div class="col-span-12 lg:col-span-8 space-y-section-gap">
+<!-- Section 1: Basic Details -->
+<section class="bg-white p-stack-lg rounded-xl card-shadow">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="font-bold text-sm">1</span>
+</div>
+<h3 class="text-h2 font-h2">Basic Details</h3>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="space-y-unit">
+<label class="text-label-sm font-label-sm text-on-surface-variant block ml-1">Full Name</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-unit">
+<label class="text-label-sm font-label-sm text-on-surface-variant block ml-1">Work Email</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="john@enterprise.com" type="email"/>
+</div>
+</div>
+</section>
+<!-- Section 2: Interest Selection (Bento Grid Style) -->
+<section class="bg-white p-stack-lg rounded-xl card-shadow">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="font-bold text-sm">2</span>
+</div>
+<h3 class="text-h2 font-h2">Interest Selection</h3>
+</div>
+<p class="text-body-md text-on-surface-variant mb-6 ml-11">Choose up to 3 topics you'd like to master.</p>
+<div class="grid grid-cols-3 gap-stack-md">
+<div class="relative group cursor-pointer border-2 border-primary bg-primary/5 p-6 rounded-xl transition-all">
+<div class="w-12 h-12 mb-4 rounded-lg bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<h4 class="font-h3 text-base font-semibold mb-1">Web Dev</h4>
+<p class="text-xs text-on-surface-variant">React, Node, Cloud Native</p>
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill">check_circle</span>
+</div>
+</div>
+<div class="group cursor-pointer border border-gray-100 hover:border-primary/30 p-6 rounded-xl transition-all hover:bg-gray-50">
+<div class="w-12 h-12 mb-4 rounded-lg bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<h4 class="font-h3 text-base font-semibold mb-1">Data Science</h4>
+<p class="text-xs text-on-surface-variant">ML, Python, Big Data</p>
+</div>
+<div class="group cursor-pointer border border-gray-100 hover:border-primary/30 p-6 rounded-xl transition-all hover:bg-gray-50">
+<div class="w-12 h-12 mb-4 rounded-lg bg-tertiary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+</div>
+<h4 class="font-h3 text-base font-semibold mb-1">UI/UX Design</h4>
+<p class="text-xs text-on-surface-variant">Figma, Motion, Systems</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Learning Plan selection -->
+<section class="bg-white p-stack-lg rounded-xl card-shadow">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="font-bold text-sm">3</span>
+</div>
+<h3 class="text-h2 font-h2">Learning Plan</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Free Plan -->
+<div class="border border-gray-200 p-6 rounded-xl flex flex-col hover:shadow-md transition-shadow">
+<span class="text-xs font-mono-label text-on-surface-variant uppercase tracking-widest mb-2">Free</span>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="text-2xl font-bold">$0</span>
+<span class="text-xs text-on-surface-variant">/mo</span>
+</div>
+<ul class="text-xs space-y-3 mb-8 flex-1">
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> Community Forums
+                                    </li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> Basic Courses
+                                    </li>
+</ul>
+<button class="w-full border border-primary text-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary/5 transition-colors">Select Plan</button>
+</div>
+<!-- Premium Plan (Featured) -->
+<div class="border-2 border-primary p-6 rounded-xl flex flex-col shadow-lg relative bg-primary/5">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Most Popular</div>
+<span class="text-xs font-mono-label text-primary uppercase tracking-widest mb-2">Premium</span>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="text-2xl font-bold">$29</span>
+<span class="text-xs text-on-surface-variant">/mo</span>
+</div>
+<ul class="text-xs space-y-3 mb-8 flex-1">
+<li class="flex items-center gap-2 text-on-surface font-medium">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> All Core Courses
+                                    </li>
+<li class="flex items-center gap-2 text-on-surface font-medium">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> Certifications
+                                    </li>
+<li class="flex items-center gap-2 text-on-surface font-medium">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> Cloud Lab Access
+                                    </li>
+</ul>
+<button class="w-full bg-primary text-white py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all">Selected</button>
+</div>
+<!-- Pro Membership -->
+<div class="border border-gray-200 p-6 rounded-xl flex flex-col hover:shadow-md transition-shadow">
+<span class="text-xs font-mono-label text-on-surface-variant uppercase tracking-widest mb-2">Pro</span>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="text-2xl font-bold">$99</span>
+<span class="text-xs text-on-surface-variant">/mo</span>
+</div>
+<ul class="text-xs space-y-3 mb-8 flex-1">
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> 1-on-1 Mentoring
+                                    </li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-green-500 text-sm" data-icon="check">check</span> Team Analytics
+                                    </li>
+</ul>
+<button class="w-full border border-primary text-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary/5 transition-colors">Select Plan</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Summary & Payment -->
+<div class="col-span-12 lg:col-span-4 space-y-stack-lg">
+<!-- KPI Card / Summary -->
+<div class="bg-white p-6 rounded-xl kpi-shadow">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-h3 text-base">Order Summary</h4>
+<div class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] font-bold">LIVE UPDATE</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Premium Plan</span>
+<span class="font-semibold">$29.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Tax (5%)</span>
+<span class="font-semibold">$1.45</span>
+</div>
+<div class="border-t border-dashed border-gray-200 pt-4 flex justify-between">
+<span class="font-bold">Total Due Today</span>
+<span class="text-primary font-bold text-lg">$30.45</span>
+</div>
+</div>
+</div>
+<!-- Payment Simulation Card -->
+<div class="bg-white p-6 rounded-xl card-shadow border border-gray-100">
+<h4 class="font-h3 text-base mb-6">Step 4: Secure Payment</h4>
+<div class="space-y-stack-md">
+<div class="space-y-unit">
+<label class="text-label-sm font-label-sm text-on-surface-variant block">Card Number</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-500" disabled="" type="text" value="•••• •••• •••• 4242"/>
+<div class="absolute right-3 top-3">
+<span class="material-symbols-outlined text-gray-400" data-icon="credit_card">credit_card</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-unit">
+<label class="text-label-sm font-label-sm text-on-surface-variant block">Expiry</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-primary focus:border-primary outline-none text-sm" placeholder="MM/YY" type="text"/>
+</div>
+<div class="space-y-unit">
+<label class="text-label-sm font-label-sm text-on-surface-variant block">CVC</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-primary focus:border-primary outline-none text-sm" placeholder="123" type="text"/>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg text-base font-bold shadow-lg hover:shadow-xl hover:brightness-95 transition-all mt-4 flex items-center justify-center gap-2 active:scale-95">
+                                Complete Registration
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center text-on-surface-variant px-4">
+                                By clicking, you agree to our Terms of Service. Secure 256-bit SSL encrypted payment.
+                            </p>
+</div>
+</div>
+<!-- Trust Factor Card -->
+<div class="bg-gray-900 text-white p-6 rounded-xl overflow-hidden relative">
+<div class="relative z-10">
+<h5 class="font-bold text-sm mb-2">Trusted by Global Teams</h5>
+<p class="text-[11px] text-gray-400 mb-4 leading-relaxed">Join 50,000+ developers from Amazon, Google, and Meta who use Bugle.in to level up.</p>
+<div class="flex -space-x-2">
+<img alt="trust-user" class="w-8 h-8 rounded-full border-2 border-gray-900" data-alt="professional person portrait small circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6o4WYTSArrmnFcHEhTPTpadFFDyY1g27KZnvo_P0HLs6f6y9Ecqit_E-cpheEHURuQibSZN_MidQnb0PLlyBSLbjkntJxBJ7lColpm053tYz4gkhkFSgG1wLsRvnd3XevbTLkYXYo4z5w1mtdM_hAjd93Rk3-pzlnHM6hORb4zHOOgpGzb3aa7v-uONGnVyIxwJ1V7PdG1kKFa6EBn35Hwm9iBdEnLn7AFgEdqktbQC4ZVJ2eL5ocJ-QG4vBhd5dmJPWjPFp2Z4hX"/>
+<img alt="trust-user" class="w-8 h-8 rounded-full border-2 border-gray-900" data-alt="professional person portrait small circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOpg1-DV4w73pOG82DY3IgHnC3hcBTe0MN16ryMgcAGobf8LIC8N5YnpdWOp6WaZLrpBr5h0U71Zzcne9SeOfh7LC-2vjjUOSk4ipgyfvWRYsrsMDQeb0Pj10-iyQ7GKXGwnthAMV3dAbwaeEGKWO8XvdvbFE4SPri8y7B8gztxvN0hdk5gY7NDAg_C26ForqOs625Vme4WDzbh6NNt7Ja9_jl0wEUwmf8JVU06luG26WpSmZJU4esbZ2WEewYio47K7ASemxtSEGK"/>
+<img alt="trust-user" class="w-8 h-8 rounded-full border-2 border-gray-900" data-alt="professional person portrait small circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABC55aNouCAcwynpeD43IRsUeY0SjVQP90TKXcLMWZJ9XZI0M4z04wqIg6zyLzDuk8qiVdl0AAQ69fB3CPMK9jY10aFko4aeKxcCY7fIayvehdZcLZodrtw-qU16JlsRz-odCiyEn2SJj0tjHOF8B2AaTQ6CzgGc7_pAE541gRMMQUeJ0tU7D6yGQ8vlx-IkNtoSL7DAfrCWQ-HjskmU28ssASbK0Gxu2lImaTYJu-3jTGMusJiFLynvN0OgQI5QZyFxZQrC7FtMxy"/>
+<div class="w-8 h-8 rounded-full border-2 border-gray-900 bg-gray-700 flex items-center justify-center text-[10px] font-bold">+4k</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-16 -mt-16"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Success Modal Backdrop (Conceptual Overlay) -->
+<div class="hidden fixed inset-0 z-50 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center p-6">
+<div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-stack-lg text-center">
+<div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="verified" data-weight="fill">verified</span>
+</div>
+<h2 class="text-h1 font-h1 mb-2">Welcome to Bugle.in Learning Platform</h2>
+<p class="text-body-md text-on-surface-variant mb-8">Your account is ready! We've customized your dashboard for a <span class="font-bold text-primary">Web Developer</span> role.</p>
+<div class="bg-surface-container rounded-xl p-4 mb-8 text-left border border-gray-200">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface uppercase tracking-wide">Next Step</p>
+<p class="text-sm text-on-surface-variant">Start "Advanced React Patterns" course</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">Go to My Dashboard</button>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="w-full py-8 px-12 flex justify-between items-center border-t border-gray-100 mt-auto bg-white">
+<div class="text-xs text-gray-500 font-['Inter']">
+                © 2024 Bugle.in Enterprise Learning
+            </div>
+<div class="flex gap-6">
+<a class="text-xs text-gray-400 hover:text-gray-600 transition-colors duration-200" href="#">Terms of Service</a>
+<a class="text-xs text-gray-400 hover:text-gray-600 transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="text-xs text-gray-400 hover:text-gray-600 transition-colors duration-200" href="#">Help Center</a>
+<a class="text-xs text-gray-400 hover:text-gray-600 transition-colors duration-200" href="#">Security</a>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,27 +1,25 @@
-import React from 'react'
-import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='flex items-center justify-between gap-4 px-4 lg:px-44 py-3'>
-      <Link to='/'>
-        <img width={150} src={assets.logo} alt="" />
-        </Link>
-      <p className='flex border-1 border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden'>Copyright @MehulChauhan-07.dev | All Rights Reserved</p>
-      <div className='flex gap-1'>
-        <Link to={{ pathname: "https://www.facebook.com/" }} target="_blank">
-          <img width={40} src={assets.facebook_icon} alt="Facebook" />
-        </Link>
-        <Link to={{ pathname: "https://twitter.com/" }} target="_blank">
-          <img width={40} src={assets.twitter_icon} alt="Twitter" />
-        </Link>
-        <Link to={{ pathname: "https://www.instagram.com/" }} target="_blank">
-          <img width={40} src={assets.google_plus_icon} alt="Instagram" />
-        </Link>
+    <footer className="bg-[#111111] text-white pt-16 pb-8 px-8 font-dm-sans">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between flex-wrap gap-8 border-t border-white/10 pt-8">
+        <span className="text-[14px] text-white/50">© 2026 BugleNexus. All rights reserved.</span>
+        <div className="flex gap-8">
+          <Link to="/privacy" className="text-[14px] text-white/70 hover:text-white transition-colors">
+            Privacy Policy
+          </Link>
+          <Link to="/terms" className="text-[14px] text-white/70 hover:text-white transition-colors">
+            Terms of Service
+          </Link>
+          <Link to="/contact" className="text-[14px] text-white/70 hover:text-white transition-colors">
+            Contact
+          </Link>
+        </div>
       </div>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

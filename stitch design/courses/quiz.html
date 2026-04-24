@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191c1e",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#45474c",
+              "inverse-surface": "#2d3133",
+              "tertiary": "#000000",
+              "secondary-container": "#316bf3",
+              "surface-dim": "#d8dadc",
+              "surface-container-high": "#e6e8ea",
+              "primary-container": "#101c2e",
+              "on-primary-container": "#79849b",
+              "outline": "#75777d",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#5c412b",
+              "inverse-primary": "#bbc7df",
+              "background": "#f7f9fb",
+              "on-primary-fixed-variant": "#3c475b",
+              "secondary-fixed-dim": "#b4c5ff",
+              "surface-variant": "#e0e3e5",
+              "surface-bright": "#f7f9fb",
+              "secondary-fixed": "#dbe1ff",
+              "inverse-on-surface": "#eff1f3",
+              "secondary": "#0051d5",
+              "on-secondary-fixed-variant": "#003ea8",
+              "primary-fixed-dim": "#bbc7df",
+              "on-primary-fixed": "#101c2e",
+              "surface": "#f7f9fb",
+              "on-primary": "#ffffff",
+              "surface-container": "#eceef0",
+              "on-secondary-container": "#fefcff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#2b1705",
+              "on-secondary-fixed": "#00174b",
+              "surface-container-low": "#f2f4f6",
+              "primary-fixed": "#d7e3fc",
+              "primary": "#000000",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1e",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c5c6cd",
+              "on-tertiary-container": "#9e7d64",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdcc2",
+              "tertiary-fixed-dim": "#e5bfa2",
+              "on-tertiary-fixed": "#2b1705",
+              "surface-container-highest": "#e0e3e5",
+              "surface-tint": "#535f74",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+            color: #191c1e;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm shadow-slate-200/50">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-slate-900 dark:text-white font-headline">The Academic Curator</span>
+<span class="text-xs font-medium text-on-surface-variant">SEO Fundamentals — Module 2 Quiz</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="text-blue-600 dark:text-blue-400 font-semibold text-sm">Question 4 of 10</span>
+<div class="flex items-center gap-2 text-error font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="timer">timer</span>
+<span class="text-sm">12:34 remaining</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-surface-container-high">
+<div class="h-full bg-secondary-container w-[40%] transition-all duration-500"></div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start py-12 px-6">
+<div class="w-full max-w-[720px] space-y-8">
+<!-- Question Badge & Header -->
+<div class="space-y-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold uppercase tracking-widest font-label">
+                    Question 4
+                </span>
+<h1 class="text-2xl md:text-3xl font-headline font-extrabold text-on-background leading-tight">
+                    Which of the following is NOT a ranking factor for Google SEO?
+                </h1>
+</div>
+<!-- Answer Options -->
+<div class="space-y-4">
+<!-- Option 1: Default -->
+<label class="group relative flex items-center p-5 cursor-pointer bg-surface-container-lowest rounded-xl transition-all duration-200 hover:bg-surface-container-low border border-transparent">
+<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary/20" name="quiz_option" type="radio"/>
+<span class="ml-4 text-on-surface font-medium">Domain Age</span>
+</label>
+<!-- Option 2: Default -->
+<label class="group relative flex items-center p-5 cursor-pointer bg-surface-container-lowest rounded-xl transition-all duration-200 hover:bg-surface-container-low border border-transparent">
+<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary/20" name="quiz_option" type="radio"/>
+<span class="ml-4 text-on-surface font-medium">Page Loading Speed</span>
+</label>
+<!-- Option 3: Selected State Mockup -->
+<label class="group relative flex items-center p-5 cursor-pointer bg-secondary-fixed border border-secondary rounded-xl transition-all duration-200 shadow-sm">
+<input checked="" class="w-5 h-5 text-secondary border-secondary focus:ring-secondary/20" name="quiz_option" type="radio"/>
+<span class="ml-4 text-on-secondary-fixed-variant font-bold">Meta Keywords tag</span>
+<span class="ml-auto material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</label>
+<!-- Option 4: Default -->
+<label class="group relative flex items-center p-5 cursor-pointer bg-surface-container-lowest rounded-xl transition-all duration-200 hover:bg-surface-container-low border border-transparent">
+<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary/20" name="quiz_option" type="radio"/>
+<span class="ml-4 text-on-surface font-medium">Mobile Friendliness</span>
+</label>
+</div>
+<!-- Clear Selection -->
+<div class="flex justify-center">
+<button class="text-on-surface-variant hover:text-secondary text-sm font-semibold transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="backspace">backspace</span>
+                    Clear Answer
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<!-- Previous Action -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="material-symbols-outlined text-2xl group-active:scale-95 duration-150" data-icon="chevron_left">chevron_left</span>
+<span class="text-xs font-bold font-inter uppercase tracking-wider">Previous</span>
+</button>
+<!-- Question Map / Pills -->
+<div class="hidden md:flex items-center gap-2">
+<!-- Answered -->
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-secondary-container text-white text-xs font-bold">1</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-secondary-container text-white text-xs font-bold">2</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-secondary-container text-white text-xs font-bold">3</div>
+<!-- Current Active -->
+<div class="w-10 h-10 rounded-xl flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-4 py-2 ring-2 ring-secondary ring-offset-2">
+<span class="text-xs font-bold font-inter">4</span>
+</div>
+<!-- Unanswered -->
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">5</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">6</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">7</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">8</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">9</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant text-xs font-bold">10</div>
+</div>
+<div class="flex items-center gap-4">
+<!-- Next Action -->
+<button class="flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="material-symbols-outlined text-2xl group-active:scale-95 duration-150" data-icon="chevron_right">chevron_right</span>
+<span class="text-xs font-bold font-inter uppercase tracking-wider">Next</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<!-- Submit Primary CTA -->
+<button class="bg-secondary text-white px-6 py-2.5 rounded-xl font-bold font-inter uppercase tracking-wider text-sm shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all">
+                Submit Quiz
+            </button>
+</div>
+</nav>
+<!-- Modal Overlay (Submission Confirmation) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-primary-container/60 backdrop-blur-sm"></div>
+<!-- Modal Content -->
+<div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+<div class="p-8 text-center space-y-6">
+<div class="mx-auto w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl" data-icon="assignment_turned_in" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-2xl font-headline font-bold text-on-background">Almost there!</h3>
+<p class="text-on-surface-variant font-medium">You have answered 9/10 questions. Are you sure you want to submit your quiz now?</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<button class="flex-1 px-6 py-3 border-2 border-outline-variant text-on-surface font-bold rounded-xl hover:bg-surface-container-low transition-colors">
+                        Cancel
+                    </button>
+<button class="flex-1 px-6 py-3 bg-secondary text-white font-bold rounded-xl shadow-md hover:bg-secondary-container transition-all active:scale-95">
+                        Submit
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

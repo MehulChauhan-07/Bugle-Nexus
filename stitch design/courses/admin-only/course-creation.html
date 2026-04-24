@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#3c475b",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#ffdcc2",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#45474c",
+              "primary-container": "#101c2e",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed": "#101c2e",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#2b1705",
+              "tertiary-container": "#2b1705",
+              "surface-bright": "#f7f9fb",
+              "background": "#f7f9fb",
+              "surface-container-highest": "#e0e3e5",
+              "on-tertiary-container": "#9e7d64",
+              "tertiary": "#000000",
+              "on-primary-container": "#79849b",
+              "tertiary-fixed-dim": "#e5bfa2",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-container": "#fefcff",
+              "surface-container": "#eceef0",
+              "surface-container-low": "#f2f4f6",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "on-secondary-fixed-variant": "#003ea8",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-surface": "#191c1e",
+              "on-error": "#ffffff",
+              "secondary-container": "#316bf3",
+              "primary": "#000000",
+              "on-tertiary-fixed-variant": "#5c412b",
+              "on-background": "#191c1e",
+              "surface": "#f7f9fb",
+              "primary-fixed-dim": "#bbc7df",
+              "outline": "#75777d",
+              "surface-container-high": "#e6e8ea",
+              "inverse-primary": "#bbc7df",
+              "secondary-fixed": "#dbe1ff",
+              "outline-variant": "#c5c6cd",
+              "on-secondary-fixed": "#00174b",
+              "primary-fixed": "#d7e3fc",
+              "surface-tint": "#535f74",
+              "inverse-on-surface": "#eff1f3",
+              "inverse-surface": "#2d3133",
+              "error": "#ba1a1a",
+              "secondary": "#0051d5"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 glass-header shadow-sm flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold tracking-tight text-slate-900">Bugle.in</span>
+<div class="h-6 w-px bg-outline-variant/30 mx-2"></div>
+<h1 class="text-lg font-semibold text-on-surface">Create New Course</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-medium text-secondary hover:bg-surface-container-low transition-colors rounded-lg">
+                Save as Draft
+            </button>
+<button class="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-secondary to-secondary-container rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95">
+                Next: Curriculum
+            </button>
+</div>
+</header>
+<div class="flex pt-16">
+<!-- SideNavBar -->
+<aside class="h-[calc(100vh-64px)] w-64 fixed left-0 top-16 bg-slate-50 flex flex-col py-6 gap-2">
+<div class="px-6 mb-6">
+<h2 class="text-xl font-bold text-slate-900">Course Wizard</h2>
+<p class="text-xs text-on-primary-container font-medium">Drafting Stage</p>
+</div>
+<nav class="flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-3 py-3 text-blue-700 font-bold border-r-4 border-blue-600 bg-white/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="font-label">Basic Info</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:text-blue-600 hover:bg-white/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label">Curriculum</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:text-blue-600 hover:bg-white/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label">Pricing</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:text-blue-600 hover:bg-white/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 w-full min-h-screen p-10 bg-surface">
+<div class="max-w-4xl mx-auto">
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Form Section -->
+<div class="md:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="text-2xl font-bold text-on-surface mb-6">General Details</h3>
+<div class="space-y-6">
+<!-- Title Input -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block">Course Title</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant/30 rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all outline-none text-on-surface" placeholder="e.g. Masterclass in Modern UI Design" type="text"/>
+</div>
+<!-- Category Dropdown -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block">Course Category</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border-outline-variant/30 rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all outline-none text-on-surface pr-10">
+<option>Web Dev</option>
+<option>SEO</option>
+<option>UI/UX Design</option>
+<option>Marketing</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- Description Editor -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block">Description</label>
+<div class="border border-outline-variant/30 rounded-xl overflow-hidden bg-surface-container-lowest">
+<div class="bg-surface-container-low px-4 py-2 border-b border-outline-variant/20 flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">format_bold</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">format_italic</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">format_list_bulleted</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">link</span>
+</div>
+<textarea class="w-full p-4 focus:outline-none text-on-surface resize-none" placeholder="Describe what students will learn..." rows="6"></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Level Selection -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="text-lg font-bold text-on-surface mb-4">Target Audience Level</h3>
+<div class="grid grid-cols-3 gap-4">
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant/30 rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+<input checked="" class="absolute opacity-0" name="level" type="radio"/>
+<span class="material-symbols-outlined text-secondary mb-2" data-weight="fill">signal_cellular_alt_1_bar</span>
+<span class="text-sm font-semibold">Beginner</span>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-secondary rounded-xl"></div>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant/30 rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="absolute opacity-0" name="level" type="radio"/>
+<span class="material-symbols-outlined text-on-surface-variant mb-2">signal_cellular_alt_2_bar</span>
+<span class="text-sm font-semibold">Intermediate</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant/30 rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="absolute opacity-0" name="level" type="radio"/>
+<span class="material-symbols-outlined text-on-surface-variant mb-2">signal_cellular_alt</span>
+<span class="text-sm font-semibold">Advanced</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Sidebar Content / Upload Area -->
+<div class="md:col-span-4 space-y-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="text-lg font-bold text-on-surface mb-4">Course Thumbnail</h3>
+<div class="aspect-video w-full rounded-lg bg-surface-container-low border-2 border-dashed border-outline-variant/40 flex flex-col items-center justify-center gap-3 overflow-hidden relative group">
+<div class="bg-white p-3 rounded-full shadow-sm text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+</div>
+<div class="text-center px-4">
+<p class="text-sm font-semibold text-on-surface">Upload Image</p>
+<p class="text-xs text-on-surface-variant mt-1">16:9 ratio recommended (JPG, PNG)</p>
+</div>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+<button class="w-full mt-4 py-3 px-4 border border-secondary text-secondary font-semibold rounded-lg hover:bg-secondary/5 transition-colors">
+                                Browse Files
+                            </button>
+</div>
+<div class="bg-primary-container p-6 rounded-xl text-white">
+<h4 class="font-bold flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary-fixed">lightbulb</span>
+                                Curator Tip
+                            </h4>
+<p class="text-sm text-on-primary-container leading-relaxed">
+                                Courses with high-quality thumbnails receive 40% more engagement. Ensure your title is punchy and describes the end result.
+                            </p>
+</div>
+<!-- Status Card -->
+<div class="p-6 rounded-xl bg-surface-container-high/50 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-bold uppercase tracking-wider text-on-surface-variant">Profile Score</span>
+<span class="text-secondary font-bold">25%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/4 rounded-full"></div>
+</div>
+<ul class="mt-4 space-y-2 text-xs font-medium">
+<li class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">check_circle</span> Basic Info
+                                </li>
+<li class="flex items-center gap-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">circle</span> Curriculum
+                                </li>
+<li class="flex items-center gap-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">circle</span> Pricing
+                                </li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

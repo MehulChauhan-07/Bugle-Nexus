@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bugle.in Enterprise Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414754",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary": "#005bbf",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#0e0200",
+                        "on-tertiary-fixed": "#341100",
+                        "inverse-surface": "#2e3132",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed-dim": "#c0c7d1",
+                        "surface-container": "#edeeef",
+                        "primary-container": "#1a73e8",
+                        "error": "#ba1a1a",
+                        "secondary": "#585f68",
+                        "surface-tint": "#005bc0",
+                        "inverse-primary": "#adc7ff",
+                        "outline-variant": "#c1c6d6",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-background": "#191c1d",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed": "#001a41",
+                        "on-secondary-container": "#5c636c",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#151c24",
+                        "on-tertiary-fixed-variant": "#783100",
+                        "secondary-container": "#d9e0eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#404750",
+                        "primary-fixed-dim": "#adc7ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-container": "#c55500",
+                        "tertiary": "#9e4300",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004493",
+                        "secondary-fixed": "#dce3ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "container-padding": "32px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-lg": "24px",
+                        "section-gap": "48px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h2": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "mono-label": ["Inter"],
+                        "h3": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "mono-label": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 flex flex-col z-40 w-[280px] h-screen border-r border-gray-200 bg-white shadow-sm font-['Inter'] antialiased">
+<div class="p-stack-lg flex flex-col items-center border-b border-gray-100">
+<div class="flex items-center gap-3 w-full px-4 mb-stack-md">
+<div class="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-blue-700 tracking-tight">Bugle.in</h1>
+<p class="text-label-sm text-gray-500">Enterprise Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-stack-lg space-y-2 overflow-y-auto">
+<div class="bg-blue-50 text-blue-700 font-semibold border-r-4 border-blue-600 flex items-center gap-3 px-4 py-3 rounded-l-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">school</span>
+<span class="text-body-md font-body-md">Courses</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-body-md font-body-md">Employees</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-body-md font-body-md">Analytics</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">description</span>
+<span class="text-body-md font-body-md">Reports</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-body-md font-body-md">Certifications</span>
+</div>
+<div class="text-gray-500 hover:bg-gray-50 flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer active:scale-95 transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-md font-body-md">Settings</span>
+</div>
+</nav>
+<div class="p-6 border-t border-gray-100">
+<div class="bg-surface-container-low rounded-xl p-4">
+<div class="flex items-center gap-3 mb-3">
+<img class="h-10 w-10 rounded-full border-2 border-white shadow-sm" data-alt="professional portrait of Ravi Kamdar, system administrator, smiling in a modern office environment with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_wafwntgoVkYSjxLReXDxn0Ka7YR06kh3fEULsWQ-LAEYGK0QLIyOdxB2xwkrHCGrwpDHeFWNcng6WO1OpzABeM0MLxHY6HAEgyh742l5kuK2tGU6Dqn0b-gCfhq30DgcieEtmoU0cKjVLLCRU-iW3HiSgK2u-DZb6PfQRMXz9UfvituGdOKw-mCAL4ci9haWK6mAROX0rKVHfHTduxE6kidS9MaZYCQ-S4CjEmHb7_jbCaU89MhLBR3ICHviUokE2sT3uCuqJiE"/>
+<div>
+<p class="font-h3 text-label-sm text-on-surface">Ravi Kamdar</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Admin</p>
+</div>
+</div>
+<button class="w-full text-label-sm font-semibold text-primary py-2 bg-white rounded-lg shadow-sm hover:bg-primary hover:text-white transition-all">Sign Out</button>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-[280px] h-16 bg-white/80 backdrop-blur-md flex items-center justify-between px-8 z-30 shadow-sm border-b border-gray-200">
+<div class="flex items-center bg-gray-100 rounded-lg px-3 py-2 w-96 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
+<span class="material-symbols-outlined text-gray-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-['Inter']" placeholder="Search employees, courses, or analytics..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-gray-600 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<button class="text-gray-600 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-px bg-gray-200"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold text-gray-900">Mr. Ravi Kamdar</span>
+<img class="h-10 w-10 rounded-full" data-alt="close-up profile photo of Mr. Ravi Kamdar in professional attire with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAre4sXO_9c9lNKvtzSstr6QSNgaW1INCvSaIgxEJRzUMhG9E07dSWlKKqxUKi04yzKAkh_mWXHIfQGCxbHbb7E074Lv-4osCSg0raCrl5TngOEH_s93bpqNg7ZLIlAn1q1ajV0egyXPAkdffa2LLybS1NmY-MpUw4ZpY_XZ3VlcO47saRUi2oi8WFka5fpMXsrCIiLdfBc4XSEyrwK440qfpzSHgRgC03d4Zi9pVQTJrDsRIokr_Ss6J-TuAwmzJSBss1v11UeHYTL"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] pt-16 min-h-screen">
+<div class="px-container-padding py-stack-lg max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-section-gap gap-6">
+<div>
+<h1 class="font-h1 text-h1 text-on-background mb-2">Good Morning, Ravi</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Here’s a complete overview of your organization’s learning and performance today.</p>
+</div>
+<div class="flex gap-stack-md">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-white border border-outline-variant text-on-surface font-semibold rounded-lg hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Report</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-white font-semibold rounded-lg hover:brightness-90 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Create New Course</span>
+</button>
+</div>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-gutter mb-section-gap">
+<!-- Revenue -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Total Revenue</p>
+<h2 class="text-h2 font-h2 text-on-surface">₹12,45,000</h2>
+</div>
+</div>
+<!-- Employees -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+4.2%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Active Employees</p>
+<h2 class="text-h2 font-h2 text-on-surface">8,420</h2>
+</div>
+</div>
+<!-- Enrollments -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined">how_to_reg</span>
+</div>
+<span class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded-full">Today</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">New Enrollments</p>
+<h2 class="text-h2 font-h2 text-on-surface">145</h2>
+</div>
+</div>
+<!-- Completion -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded-full">-1.5%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Course Completion</p>
+<h2 class="text-h2 font-h2 text-on-surface">72%</h2>
+</div>
+</div>
+<!-- Overdue -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-red-50 text-red-600 rounded-lg">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="text-xs font-bold text-white bg-red-600 px-2 py-1 rounded-full">Alert</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Trainings Overdue</p>
+<h2 class="text-h2 font-h2 text-on-surface text-red-600">23</h2>
+</div>
+</div>
+<!-- Certificates -->
+<div class="bg-white p-stack-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="p-2 bg-cyan-50 text-cyan-600 rounded-lg">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+8%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Certificates Issued</p>
+<h2 class="text-h2 font-h2 text-on-surface">1,245</h2>
+</div>
+</div>
+</div>
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-12 gap-gutter mb-section-gap">
+<!-- Main Analytics (8 cols) -->
+<div class="col-span-12 xl:col-span-8 space-y-gutter">
+<!-- Analytics Overview -->
+<div class="bg-white p-stack-lg rounded-xl shadow-sm border border-gray-100">
+<div class="flex justify-between items-center mb-stack-lg">
+<h3 class="font-h3 text-h3">Learning Growth &amp; Revenue</h3>
+<div class="flex gap-2">
+<select class="text-label-sm border-gray-200 rounded-lg py-1 px-3">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+</div>
+<div class="h-[300px] w-full flex items-end gap-4 px-4 pb-4 border-b border-gray-100">
+<!-- Simple Bar Mockup -->
+<div class="flex-1 bg-primary/20 rounded-t-lg h-[40%] transition-all hover:bg-primary/40 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹120k</div>
+</div>
+<div class="flex-1 bg-primary/30 rounded-t-lg h-[55%] transition-all hover:bg-primary/50 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹145k</div>
+</div>
+<div class="flex-1 bg-primary/50 rounded-t-lg h-[75%] transition-all hover:bg-primary/70 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹210k</div>
+</div>
+<div class="flex-1 bg-primary/60 rounded-t-lg h-[65%] transition-all hover:bg-primary/80 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹190k</div>
+</div>
+<div class="flex-1 bg-primary/80 rounded-t-lg h-[85%] transition-all hover:bg-primary/90 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹245k</div>
+</div>
+<div class="flex-1 bg-primary rounded-t-lg h-[95%] transition-all hover:brightness-110 relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹335k</div>
+</div>
+</div>
+<div class="flex justify-between text-label-sm text-on-surface-variant pt-4 px-4 font-mono-label">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+</div>
+</div>
+<!-- Team Performance -->
+<div class="bg-white p-stack-lg rounded-xl shadow-sm border border-gray-100">
+<div class="flex justify-between items-center mb-stack-lg">
+<h3 class="font-h3 text-h3">Departmental Completion Rate</h3>
+<button class="text-primary text-label-sm font-semibold hover:underline">View Detailed Report</button>
+</div>
+<div class="space-y-stack-md">
+<div class="space-y-1">
+<div class="flex justify-between text-body-md mb-1">
+<span class="font-medium">Engineering</span>
+<span class="font-bold">92%</span>
+</div>
+<div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+<div class="bg-green-500 h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-md mb-1">
+<span class="font-medium">Marketing</span>
+<span class="font-bold">84%</span>
+</div>
+<div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-md mb-1">
+<span class="font-medium">HR</span>
+<span class="font-bold">76%</span>
+</div>
+<div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-md mb-1">
+<span class="font-medium">Sales</span>
+<span class="font-bold">68%</span>
+</div>
+<div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-md mb-1">
+<span class="font-medium">Support</span>
+<span class="font-bold">59%</span>
+</div>
+<div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+<div class="bg-red-400 h-full rounded-full" style="width: 59%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (4 cols) -->
+<div class="col-span-12 xl:col-span-4 space-y-gutter">
+<!-- Quick Broadcast -->
+<div class="bg-white p-stack-lg rounded-xl shadow-sm border border-gray-100">
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-primary">campaign</span>
+<h3 class="font-h3 text-h3">Quick Broadcast</h3>
+</div>
+<div class="space-y-4">
+<div>
+<label class="text-label-sm font-semibold mb-1 block">Target Audience</label>
+<select class="w-full border-gray-200 rounded-lg text-body-md focus:ring-primary focus:border-primary">
+<option>All Employees</option>
+<option>Engineering Team</option>
+<option>New Recruits</option>
+</select>
+</div>
+<div class="bg-blue-50 p-3 rounded-lg flex items-center justify-between">
+<span class="text-label-sm font-medium text-blue-700">Daily Target Reach</span>
+<span class="text-label-sm font-bold text-blue-800">108/145</span>
+</div>
+<div>
+<label class="text-label-sm font-semibold mb-1 block">Message Content</label>
+<textarea class="w-full border-gray-200 rounded-lg text-body-md focus:ring-primary focus:border-primary" placeholder="Type your announcement here..." rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-white font-semibold py-2.5 rounded-lg shadow-sm hover:brightness-90 transition-all">Send Announcement</button>
+</div>
+</div>
+<!-- Overdue Training Alerts -->
+<div class="bg-white p-stack-lg rounded-xl shadow-sm border border-gray-100">
+<div class="flex items-center justify-between mb-stack-lg">
+<h3 class="font-h3 text-h3">Overdue Training</h3>
+<span class="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded-full">3 CRITICAL</span>
+</div>
+<div class="space-y-stack-md">
+<div class="flex items-center justify-between p-3 border border-gray-50 rounded-lg hover:bg-gray-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-gray-200 overflow-hidden">
+<img data-alt="headshot of employee Shiv Patel, professional and modern style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQVrRc-Y1fRbyd6aOSA1jbqbYOzjfH0boZvsSInoNE82z0FjjK-vH3MsK7BHWVsIM6s6jD9blJN0HNCInoz75Vd6EW9IwYKNqhn1RdGv-iOytL71i2z7zFTTeZIXNcnPww9voI2JNA1lwtP7a2u3QRrQYdmrk2rLD9SVpwX-AAzZs0D3IJc1tTCsFksC9AAloOGHvOxTccZKe9aBzyY7db-nAReorgTz37D_EqtqRkp4c5XUn-tU8XiJugW0wSjvgjhmuJbBOxliE"/>
+</div>
+<div>
+<p class="text-body-md font-semibold">Shiv Patel</p>
+<p class="text-xs text-red-500">Overdue by 5 days</p>
+</div>
+</div>
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">mail</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-3 border border-gray-50 rounded-lg hover:bg-gray-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-gray-200 overflow-hidden">
+<img data-alt="headshot of employee Shivani Barot, professional corporate portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxLgEqbWAqaA--ol74Rp7e9ZE67Fjys2tXhrFgFGu8FwCs0NS92crpwVieT6E1709Gsjopu3O28in0CDe9x_eAJuiU0eeL5Rd_TfAsUHRJO70_dKCSJ_Xn8R11wCuTy2QClfHdPZ3873dBcrnYV2grf-XGibke-gco6aTgHpPUKyVjyLYPdvJ-YXS8D9JO0QVbr2fDQhPrByIJiq2sYcK-2zThNz0Y_VVpTX95pMFogU5VDBLGHzZoQ-UWwnDUC5yLweMVFc1Ur16g"/>
+</div>
+<div>
+<p class="text-body-md font-semibold">Shivani Barot</p>
+<p class="text-xs text-red-500">Overdue by 3 days</p>
+</div>
+</div>
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">mail</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-3 border border-gray-50 rounded-lg hover:bg-gray-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-gray-200 overflow-hidden">
+<img data-alt="headshot of employee Samarth Delavadiya, sharp corporate profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ClAj-Z9O8EZvpcznUtnKt2qHmPGIq6Z9x_0x4lNXpzVvrbsLJTdq49UnUWtZzj9qUoEQuX7TTDgrIKWdKZk8NaZiBqxluklZPUJ9bwBOL8oWJpFW6G2EziPjcMdJAunGr91e5uNeeOqOzUmNpJUeVYO_c0-p8jz8ZMthhqZP2q9D8mFEalD3jp6aPcEPxSpCecf0AJRO7r848M24Bs7fgao4BLbDoqLuOxFh1GDkNd8H_n1XIdebXseJ9oStIh35rFURnIocGv8B"/>
+</div>
+<div>
+<p class="text-body-md font-semibold">Samarth Delavadiya</p>
+<p class="text-xs text-red-500">Overdue by 2 days</p>
+</div>
+</div>
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">mail</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
+<!-- Upcoming Events -->
+<div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+<h3 class="font-h3 text-h3 mb-4">Upcoming Events</h3>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-blue-50 text-blue-700 rounded-lg flex flex-col items-center justify-center font-bold">
+<span class="text-xs leading-none">OCT</span>
+<span class="text-lg">24</span>
+</div>
+<div>
+<p class="text-body-md font-bold">Cloud Computing</p>
+<p class="text-xs text-on-surface-variant">Training Session • 10:00 AM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-purple-50 text-purple-700 rounded-lg flex flex-col items-center justify-center font-bold">
+<span class="text-xs leading-none">OCT</span>
+<span class="text-lg">26</span>
+</div>
+<div>
+<p class="text-body-md font-bold">AI Workshop</p>
+<p class="text-xs text-on-surface-variant">Expert Webinar • 2:30 PM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-orange-50 text-orange-700 rounded-lg flex flex-col items-center justify-center font-bold">
+<span class="text-xs leading-none">OCT</span>
+<span class="text-lg">30</span>
+</div>
+<div>
+<p class="text-body-md font-bold">Maintenance</p>
+<p class="text-xs text-on-surface-variant">System Update • 11:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Insights -->
+<div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+<h3 class="font-h3 text-h3 mb-4">System Insights</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Peak Usage</p>
+<p class="text-body-md font-bold">11:00 AM - 02:00 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Pop Course</p>
+<p class="text-body-md font-bold">Full-Stack Development</p>
+</div>
+</div>
+<div class="pt-2">
+<div class="w-full bg-gray-100 rounded-full h-1.5 mb-2">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+<p class="text-label-sm text-center">85% Quarterly Target Achieved</p>
+</div>
+</div>
+</div>
+<!-- HR Overview -->
+<div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<img class="h-10 w-10 rounded-full" data-alt="portrait of HR Manager Mrs. Kunjal Patel, professional and confident demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDECOidRknzgRpxI-_TiNu7X1Hd6XpyEQig6vJS8T7HU_jXpHBU8gY_LlKLhe3PUmWVyjrAWoMBhSowjLYYX_u80pqrSvZx0VCM_V-PHCGDEdarFxAuwHmpWAKsPPRJdDlk-7g_k7xXGGqbXpCJxY5qMjpLE2bLIGVFc50gm2cKgvKVvxkWBBSRe5Y5cRBuFwTyva4cjnH7mBSeJX32gLOIG1XAFq6AsRkykfiCM7bEXHwAM9slhym4pM7FaBOsJ0K-uLx7hbhCXBEf"/>
+<div>
+<p class="text-body-md font-bold">Mrs. Kunjal Patel</p>
+<p class="text-xs text-on-surface-variant">HR Manager</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-gray-50 p-2 rounded-lg">
+<p class="text-[10px] text-gray-500 font-bold uppercase">Staff</p>
+<p class="text-body-md font-black">8,420</p>
+</div>
+<div class="bg-gray-50 p-2 rounded-lg">
+<p class="text-[10px] text-gray-500 font-bold uppercase">Active</p>
+<p class="text-body-md font-black">312</p>
+</div>
+<div class="bg-red-50 p-2 rounded-lg col-span-2 flex justify-between items-center">
+<p class="text-[10px] text-red-600 font-bold uppercase">Pending Appr.</p>
+<p class="text-body-md font-black text-red-700">27</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action Card -->
+<div class="bg-gradient-to-br from-primary to-blue-800 p-6 rounded-xl shadow-lg text-white">
+<h3 class="font-h3 text-h3 mb-2">Need Support?</h3>
+<p class="text-body-md text-white/80 mb-6">Connect with our enterprise support team for system integration assistance.</p>
+<button class="w-full bg-white text-primary font-bold py-2 rounded-lg hover:bg-blue-50 transition-colors shadow-xl">Contact IT Support</button>
+</div>
+</div>
+<!-- Recent Activity Table -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-section-gap">
+<div class="p-stack-lg border-b border-gray-100 flex justify-between items-center">
+<h3 class="font-h3 text-h3">Recent Activity</h3>
+<button class="text-primary text-label-sm font-semibold flex items-center gap-1 hover:underline">
+<span>View All Activity</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50/50">
+<th class="px-6 py-4 text-label-sm font-bold text-gray-600 uppercase tracking-wider">Employee</th>
+<th class="px-6 py-4 text-label-sm font-bold text-gray-600 uppercase tracking-wider">Course Module</th>
+<th class="px-6 py-4 text-label-sm font-bold text-gray-600 uppercase tracking-wider">Completion</th>
+<th class="px-6 py-4 text-label-sm font-bold text-gray-600 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-label-sm font-bold text-gray-600 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100">
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">JM</div>
+<span class="text-body-md font-semibold text-on-surface">Jeel Mungra</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">Cyber Security Advanced</td>
+<td class="px-6 py-4 text-body-md font-bold">89%</td>
+<td class="px-6 py-4">
+<span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">Completed</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">MC</div>
+<span class="text-body-md font-semibold text-on-surface">Mehulsinh Chauhan</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">Enterprise Agile Coach</td>
+<td class="px-6 py-4 text-body-md font-bold">45%</td>
+<td class="px-6 py-4">
+<span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">In Progress</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">DV</div>
+<span class="text-body-md font-semibold text-on-surface">Dev Vyas</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">Cloud Infrastructure</td>
+<td class="px-6 py-4 text-body-md font-bold">0%</td>
+<td class="px-6 py-4">
+<span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">Pending</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-xs">RR</div>
+<span class="text-body-md font-semibold text-on-surface">Rakshit Ramani</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">Leadership Essentials</td>
+<td class="px-6 py-4 text-body-md font-bold">100%</td>
+<td class="px-6 py-4">
+<span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">Completed</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-red-100 text-red-700 flex items-center justify-center font-bold text-xs">VV</div>
+<span class="text-body-md font-semibold text-on-surface">Vishal Vithlani</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">React Performance</td>
+<td class="px-6 py-4 text-body-md font-bold">12%</td>
+<td class="px-6 py-4">
+<span class="bg-red-50 text-red-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">Delayed</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">AP</div>
+<span class="text-body-md font-semibold text-on-surface">Akash Panchal</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">Node.js Design Patterns</td>
+<td class="px-6 py-4 text-body-md font-bold">78%</td>
+<td class="px-6 py-4">
+<span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">In Progress</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors border-none">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold text-xs">PA</div>
+<span class="text-body-md font-semibold text-on-surface">Priyansh Asher</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md">UI/UX Principles</td>
+<td class="px-6 py-4 text-body-md font-bold">94%</td>
+<td class="px-6 py-4">
+<span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-tight">In Progress</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer Shell -->
+<footer class="ml-0 flex justify-between items-center px-12 w-full border-t border-gray-200 py-6 bg-gray-50 font-['Inter'] text-xs text-gray-500">
+<div class="flex items-center gap-4">
+<span class="font-semibold text-gray-700">Bugle.in</span>
+<p>© 2026 Bugle Technologies Pvt. Ltd. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-gray-400 hover:text-blue-500 transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="text-gray-400 hover:text-blue-500 transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a>
+<a class="text-gray-400 hover:text-blue-500 transition-colors underline-offset-4 hover:underline" href="#">Support</a>
+</div>
+</footer>
+</main>
+<!-- FAB (Suppressed on Dashboard as per context mandate, but here for structural completeness if needed elsewhere) -->
+<!-- Suppressed: Context is Dashboard -->
+</body></html>

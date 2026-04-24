@@ -1,53 +1,48 @@
 import React from "react";
-import { assets } from "../../assets/assets.js";
-import { Link, useNavigate } from "react-router-dom";
-import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
-import { useContext } from "react";
-import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../context/AppContext.jsx";
 
 const Navbar = () => {
-  const { openSignIn } = useClerk();
-  const { isSignedIn, user } = useUser();
-  const { credit, loadCreditData } = useContext(AppContext);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isSignedIn) {
-      loadCreditData();
-    }
-  }, [isSignedIn, loadCreditData]);
 
   return (
-    <div className="flex justify-between items-center mx-4 py-3 bg-white lg:mx-44">
-      <Link to="/">
-        <img className="w-32 sm:w-44" src={assets.logo} alt="Logo" />
-      </Link>
-      {isSignedIn ? (
-        <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            onClick={() => navigate("/pricing")}
-            className="flex items-center gap-2 bg-blue-100 px-4 sm:px-7 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-transform duration-700"
-          >
-            <img className="w-5" src={assets.credit_icon} alt="Credit Icon" />
-            <p className="text-xs sm:text-sm font-medium text-gray-600">
-              Credit : {credit}
-            </p>
-          </button>
-          <p className="text-gray-600 max-sm:hidden">Hi, {user.fullName}!</p>
-          <UserButton />
+    <nav className="sticky top-0 z-[100] bg-[#111111] px-8 font-dm-sans">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <Link to="/" className="text-[22px] text-white font-medium flex items-center gap-2 tracking-[0.02em]">
+          <img src="https://bugle.in/wp-content/uploads/2023/12/LOGO.avif" alt="Logo" className="h-[40px] w-auto object-contain" />
+        </Link>
+
+        {/* Links */}
+        <ul className="hidden md:flex items-center gap-10 list-none">
+          <li>
+            <Link to="/categories" className="text-[14px] font-normal text-[#cccccc] hover:text-white transition-colors">Courses</Link>
+          </li>
+          <li>
+            <Link to="#" className="text-[14px] font-normal text-[#cccccc] hover:text-white transition-colors">My Learning</Link>
+          </li>
+          <li>
+            <Link to="#" className="text-[14px] font-normal text-[#cccccc] hover:text-white transition-colors">About</Link>
+          </li>
+          <li>
+            <Link to="#" className="text-[14px] font-normal text-[#cccccc] hover:text-white transition-colors">Contact</Link>
+          </li>
+        </ul>
+
+        {/* Actions */}
+        <div className="flex items-center gap-3">
+
+          <Link to="/login" className="text-[14px] px-5 py-2.5 rounded-lg border border-white/20 bg-transparent text-white font-medium hover:bg-white/10 transition-all">
+            Log in
+          </Link>
+          <Link to="/role-selection" className="text-[14px] px-5 py-2.5 rounded-lg bg-white text-[#111111] font-medium hover:opacity-85 transition-opacity">
+            Let's Connect &rarr;
+          </Link>
+
         </div>
-      ) : (
-        <button
-          onClick={() => openSignIn({})}
-          className="bg-zinc-800 text-white px-4 py-2 flex items-center gap-4 sm:py-3 text-sm rounded-full hover:bg-zinc-700 transition-colors duration-300"
-        >
-          Get started{" "}
-          <img className="w-3 sm:w-4" src={assets.arrow_icon} alt="" />
-        </button>
-      )}
-    </div>
+      </div>
+    </nav>
   );
 };
 

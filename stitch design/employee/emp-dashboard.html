@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bugle.in | Employee Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#9e7d64",
+                        "tertiary-container": "#2b1705",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#00174b",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#101c2e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5c412b",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c475b",
+                        "outline": "#75777d",
+                        "surface-tint": "#535f74",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#101c2e",
+                        "on-surface-variant": "#45474c",
+                        "tertiary-fixed-dim": "#e5bfa2",
+                        "tertiary-fixed": "#ffdcc2",
+                        "on-primary-container": "#79849b",
+                        "primary-fixed": "#d7e3fc",
+                        "primary": "#000000",
+                        "on-background": "#191c1e",
+                        "secondary": "#0051d5",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c5c6cd",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#bbc7df",
+                        "on-secondary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "secondary-container": "#316bf3",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "inverse-primary": "#bbc7df",
+                        "on-tertiary-fixed": "#2b1705"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .click-bounce-effect:active {
+            transform: scale(0.95);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background-color: rgba(247, 249, 251, 0.8);
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #0051d5 0%, #316bf3 100%);
+        }
+
+        .ghost-border {
+            border: 1px solid rgba(197, 198, 205, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface min-h-screen">
+    <!-- SideNavBar (Shared Component) -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-slate-50 dark:bg-slate-900 flex flex-col py-6 px-4 z-50">
+        <div class="mb-10 px-4">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-manrope">Bugle.in</h1>
+            <p class="text-xs text-slate-500 font-medium">Marketing Team</p>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-blue-700 dark:text-blue-400 font-semibold border-r-4 border-blue-700 dark:border-blue-400 bg-slate-200/50 dark:bg-slate-800/50 transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="school">school</span>
+                <span class="font-manrope text-sm font-medium">My Training</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                <span class="font-manrope text-sm font-medium">Assigned Courses</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+                <span class="font-manrope text-sm font-medium">Certificates</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                <span class="font-manrope text-sm font-medium">Leaderboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="help">help</span>
+                <span class="font-manrope text-sm font-medium">Help</span>
+            </a>
+        </nav>
+        <div class="mt-auto px-4 py-4 flex items-center gap-3 border-t border-slate-200 dark:border-slate-800 pt-6">
+            <img alt="Priya, Marketing Team" class="w-10 h-10 rounded-full object-cover"
+                data-alt="Professional headshot of Priya smiling"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp8wogOqIzpOmFjF8N52OBlpWcvc9r0hsJkkb76bhWzo6QQBIaMQbgpKOrTEy5GAhjnOWz-Po2kLCgY7Ogr4_qn8c2pLlU-GDFoTMi5EU4TJ_ZJeNmUN47QZV30ox7eYgNgYokDJXigt6Fg27hufEXzCbkrRCPcsb1FbE0-PxXlqVUs7z-r6t4u7hj6Iq0iRhQCjGpYTZYJ_N2CCcz8hN0RfB5aB2WuEL0tN8BFtEds_t7jD15U_rs-m11i60A8Tvf1JWAUdNS3Rgh" />
+            <div class="overflow-hidden">
+                <p class="text-sm font-bold text-slate-900 dark:text-white truncate">Priya Sharma</p>
+                <p class="text-xs text-slate-500 truncate">Marketing Lead</p>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content Wrapper -->
+    <main class="ml-64 min-h-screen bg-surface-container-low pb-12">
+        <!-- TopNavBar (Shared Component) -->
+        <header
+            class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex justify-between items-center px-8 z-40 shadow-sm dark:shadow-none">
+            <h2 class="font-manrope text-xl font-extrabold tracking-tight text-primary">Good morning, Priya</h2>
+            <div class="flex items-center gap-6">
+                <!-- Search Bar -->
+                <div class="relative hidden lg:block">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
+                        data-icon="search">search</span>
+                    <input
+                        class="pl-10 pr-4 py-2 w-64 bg-surface-container-lowest border-none rounded-full text-sm focus:ring-2 focus:ring-secondary/20 transition-all outline-none"
+                        placeholder="Search courses..." type="text" />
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="p-2 text-on-surface-variant hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-all click-bounce-effect relative">
+                        <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+                    </button>
+                    <img alt="Priya's Profile" class="w-8 h-8 rounded-full object-cover"
+                        data-alt="Priya's profile circular thumbnail"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDisMqP_RsYVTvNdFBBdVDtyXHmEBjzXMkEFNDhLEyAjFEaethM9NlYlDSrsXaeRbhu1GM5ExEz81qvmNbEc5GkxhZ3Z5QkUQKdkM-w-Nagl5OLrTMhCPoUUHNoB9W_u5onJMT3C90dNmKXNbKCMeBQ0fxkiSIciEIIukcvAOE-33D44SrokIW89pmPUwPUGl-BQosfQDu8uZ01Nh2NpTcSmVUAYh7lYY55jmcTxQdKLVuL0a7zIaI303xBrPHt1Eu4UbUC1cQd5ACR" />
+                </div>
+            </div>
+        </header>
+        <!-- Content Canvas -->
+        <div class="pt-24 px-8 max-w-7xl mx-auto space-y-8">
+            <!-- Alert Banner -->
+            <div
+                class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-3 text-amber-900">
+                    <span class="material-symbols-outlined text-amber-600" data-icon="warning">warning</span>
+                    <p class="font-medium text-sm">You have 2 overdue trainings. Complete by Friday.</p>
+                </div>
+                <button class="text-amber-700 text-xs font-bold hover:underline">Take Action</button>
+            </div>
+            <!-- Stats Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-2">Assigned</p>
+                    <div class="flex items-end justify-between">
+                        <h3 class="text-3xl font-manrope font-extrabold">06</h3>
+                        <span class="material-symbols-outlined text-on-surface-variant"
+                            data-icon="assignment_ind">assignment_ind</span>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-2">Completed</p>
+                    <div class="flex items-end justify-between">
+                        <h3 class="text-3xl font-manrope font-extrabold text-emerald-600">03</h3>
+                        <span class="material-symbols-outlined text-emerald-600"
+                            data-icon="check_circle">check_circle</span>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-2">In Progress
+                    </p>
+                    <div class="flex items-end justify-between">
+                        <h3 class="text-3xl font-manrope font-extrabold text-secondary">02</h3>
+                        <span class="material-symbols-outlined text-secondary" data-icon="pending">pending</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-b-4 border-error">
+                    <p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-2">Overdue</p>
+                    <div class="flex items-end justify-between">
+                        <h3 class="text-3xl font-manrope font-extrabold text-error">01</h3>
+                        <span class="material-symbols-outlined text-error" data-icon="event_busy">event_busy</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Main Interactive Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Continue Learning Card -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h3 class="font-manrope text-lg font-bold">Continue Where You Left Off</h3>
+                    <div
+                        class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row group transition-all hover:translate-y-[-2px]">
+                        <div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+                            <img alt="Digital Marketing"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Laptop with charts showing digital marketing data"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd4kww7830excuo7_OzIq7jbZPdmEaD-sb3a_oO_pT9VknPrM_3rnJlpruBgAAf5kcKZztybacMHl4M_vAl-C9C3Rjy5vZoHJH0KXMgoMeoYIb4WIPycQKt0jPsCfk3gP3uKujx8a9HGVaa_RRqwyJpFhMbYQYAU1-NkuHMk_CtSA4a-j3MVa8Z9yUaEsySwfV8F98C-HGVXqBKp6Eg3HSu39fiKbGtwfuQn8_7nQZj_u2bfUOdQ6xby-jIRcI0QODUAq0pTOypXIO" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                <span
+                                    class="bg-secondary/90 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-sm">MODULE
+                                    4/7</span>
+                            </div>
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-manrope font-bold mb-2">Digital Marketing Fundamentals</h4>
+                                <p class="text-on-surface-variant text-sm mb-6">Current Module: <span
+                                        class="text-on-surface font-medium italic">SEO &amp; Content Strategy</span></p>
+                                <div class="mb-8">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span
+                                            class="text-xs font-bold text-secondary uppercase tracking-tight">Progress</span>
+                                        <span class="text-xs font-bold text-secondary">58%</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-primary rounded-full" style="width: 58%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full md:w-fit px-8 py-3 bg-gradient-primary text-white font-bold rounded-lg text-sm click-bounce-effect shadow-lg shadow-secondary/20 flex items-center justify-center gap-2">
+                                Resume Training
+                                <span class="material-symbols-outlined text-sm" data-icon="play_arrow"
+                                    style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Live Sessions Sidebar -->
+                <div class="space-y-4">
+                    <h3 class="font-manrope text-lg font-bold">Upcoming Live Session</h3>
+                    <div class="bg-primary-container text-white p-6 rounded-xl relative overflow-hidden group">
+                        <!-- Abstract Design Element -->
+                        <div
+                            class="absolute -right-8 -top-8 w-32 h-32 bg-secondary/20 rounded-full blur-3xl group-hover:bg-secondary/40 transition-colors">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4 text-secondary-fixed">
+                                <span class="material-symbols-outlined text-sm"
+                                    data-icon="calendar_today">calendar_today</span>
+                                <span class="text-xs font-bold uppercase tracking-widest">Oct 24, 2024</span>
+                            </div>
+                            <h4 class="text-lg font-manrope font-bold mb-1 leading-tight">Advanced Analytics Workshop
+                            </h4>
+                            <p class="text-primary-fixed-dim text-xs mb-6">10:00 AM - 11:30 AM (90 mins)</p>
+                            <div class="flex items-center gap-3 mb-8">
+                                <div class="flex -space-x-2">
+                                    <img alt="Speaker 1" class="w-8 h-8 rounded-full border-2 border-primary-container"
+                                        data-alt="Male speaker professional headshot"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0sSHVKc2_Oe5eh1G5N13XvTSSKUpJY7V1q48PiLv4V6PKh37eQkHy0d7GfYk7i-sWLY91SH8l34Z4JSP6sARqmybMbgNqY56FWiXs_SOL-Fo4LWEoHi0OcUR2GVrY5vk0LcPora56gG0E__TPpVrfyxffjQ7Lc-0ews2aK63RkvVhTBq9OGki3fiJwmLgzxA3hZLntm9UdGycMkZ7_6ftiYsZ0MAenxfvndLLV5gyoKICn0XnPnYBgpVcCmdp0wuyj9vqxnlNPlT" />
+                                    <img alt="Speaker 2" class="w-8 h-8 rounded-full border-2 border-primary-container"
+                                        data-alt="Female speaker professional headshot"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBChl5dlWUI6tZR5iHb3YvtI2N5vCLcxTB8IW8ZqA5CsOZgYd-N7NngO2kDT-ay6tg0n1hdG2IMiqmuwql03quPzrqAoFjyXZPE3gX9WcwWQRorgM-yAOLa3XsrMFFKYbMIwgJHbToM0Z4eZ_L5JmuoLDyv2Gikzv34TSUpRk58TLi3flzyAVnzhjlv1iw3YhIQouS-2Ih-zlsvZ-OV_VENz47anCc_oVBmKE7MVI0NUMuGW_SYSB_TncTStNWluvZ4qUusJBAvL7He" />
+                                </div>
+                                <span class="text-[10px] text-on-primary-container font-medium">+14 others joined</span>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-secondary text-white font-bold rounded-lg text-sm hover:bg-secondary-container transition-colors click-bounce-effect">
+                                Join Session
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Mandatory Compliance Section -->
+                    <div class="bg-error-container/20 border-2 border-error/10 p-5 rounded-xl space-y-4">
+                        <div class="flex items-center gap-2 text-error">
+                            <span class="material-symbols-outlined text-sm" data-icon="gavel">gavel</span>
+                            <h4 class="text-xs font-bold uppercase tracking-widest">Mandatory Compliance</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div
+                                class="bg-white p-3 rounded-lg flex items-center gap-3 shadow-sm border-l-4 border-error">
+                                <span class="material-symbols-outlined text-error"
+                                    data-icon="lock_person">lock_person</span>
+                                <div class="overflow-hidden">
+                                    <p class="text-sm font-bold truncate">Data Privacy Policy 2024</p>
+                                    <p class="text-[10px] text-on-surface-variant">Due in 2 days</p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-white p-3 rounded-lg flex items-center gap-3 shadow-sm border-l-4 border-error">
+                                <span class="material-symbols-outlined text-error"
+                                    data-icon="health_and_safety">health_and_safety</span>
+                                <div class="overflow-hidden">
+                                    <p class="text-sm font-bold truncate">Workplace Safety Guidelines</p>
+                                    <p class="text-[10px] text-on-surface-variant">Due in 5 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Assigned Trainings Table Section -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-manrope text-lg font-bold">Assigned Training List</h3>
+                    <button class="text-secondary text-xs font-bold flex items-center gap-1 hover:underline">
+                        View All History
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="bg-surface-container-high/30 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
+                                <th class="px-8 py-4">Course Name</th>
+                                <th class="px-8 py-4">Assigned By</th>
+                                <th class="px-8 py-4">Due Date</th>
+                                <th class="px-8 py-4">Status</th>
+                                <th class="px-8 py-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-surface-container">
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-8 py-5 font-bold">Business Communication Skills</td>
+                                <td class="px-8 py-5 text-on-surface-variant">HR Department</td>
+                                <td class="px-8 py-5 text-on-surface-variant">Nov 12, 2024</td>
+                                <td class="px-8 py-5">
+                                    <span
+                                        class="px-2.5 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full uppercase tracking-tighter">In
+                                        Progress</span>
+                                </td>
+                                <td class="px-8 py-5 text-right">
+                                    <button class="text-secondary font-bold hover:underline">Resume</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-8 py-5 font-bold">Cybersecurity Essentials</td>
+                                <td class="px-8 py-5 text-on-surface-variant">IT Security</td>
+                                <td class="px-8 py-5 text-error font-medium">Oct 20, 2024</td>
+                                <td class="px-8 py-5">
+                                    <span
+                                        class="px-2.5 py-1 bg-error/10 text-error text-[10px] font-bold rounded-full uppercase tracking-tighter">Overdue</span>
+                                </td>
+                                <td class="px-8 py-5 text-right">
+                                    <button class="text-error font-bold hover:underline">Start Now</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-8 py-5 font-bold">Leadership 101</td>
+                                <td class="px-8 py-5 text-on-surface-variant">Siddharth V. (VP)</td>
+                                <td class="px-8 py-5 text-on-surface-variant">Dec 05, 2024</td>
+                                <td class="px-8 py-5">
+                                    <span
+                                        class="px-2.5 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-full uppercase tracking-tighter">Not
+                                        Started</span>
+                                </td>
+                                <td class="px-8 py-5 text-right">
+                                    <button class="text-on-surface-variant font-bold hover:underline">Details</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-8 py-5 font-bold">Project Management Agile</td>
+                                <td class="px-8 py-5 text-on-surface-variant">Team Lead</td>
+                                <td class="px-8 py-5 text-on-surface-variant">Oct 15, 2024</td>
+                                <td class="px-8 py-5">
+                                    <span
+                                        class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full uppercase tracking-tighter">Completed</span>
+                                </td>
+                                <td class="px-8 py-5 text-right">
+                                    <button class="text-emerald-700 font-bold hover:underline">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

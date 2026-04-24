@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HR Assignment Wizard - Step 3</title>
+    <!-- Google Fonts: Manrope & Inter -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#101c2e",
+                        "primary-container": "#101c2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed-dim": "#bbc7df",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary-fixed": "#00174b",
+                        "tertiary-fixed-dim": "#e5bfa2",
+                        "on-primary-fixed-variant": "#3c475b",
+                        "on-error-container": "#93000a",
+                        "outline": "#75777d",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-container": "#9e7d64",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#0051d5",
+                        "on-surface-variant": "#45474c",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#535f74",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#79849b",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed": "#2b1705",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#bbc7df",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#ffdcc2",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#d7e3fc",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c5c6cd",
+                        "on-tertiary-fixed-variant": "#5c412b",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-dim": "#d8dadc",
+                        "surface-container": "#eceef0",
+                        "secondary-container": "#316bf3",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "tertiary-container": "#2b1705",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .step-line {
+            height: 2px;
+            background: #cbd5e1;
+            flex-grow: 1;
+            margin: 0 16px;
+        }
+
+        .step-line-active {
+            background: #0051d5;
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased">
+    <!-- TopAppBar - Execution from JSON -->
+    <header
+        class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-slate-900 sticky top-0 z-50 flex justify-between items-center px-8 py-4 w-full shadow-sm">
+        <div class="flex items-center gap-3">
+            <span class="text-xl font-bold font-headline text-slate-900">HR Assignment Wizard</span>
+        </div>
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-slate-500 hover:text-blue-600 transition-colors font-body text-sm" href="#">Select Course</a>
+            <a class="text-slate-500 hover:text-blue-600 transition-colors font-body text-sm" href="#">Select
+                Employees</a>
+            <a class="text-blue-700 font-bold border-b-2 border-blue-600 font-body text-sm" href="#">Set Deadlines &amp;
+                Rules</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button class="p-2 rounded-full hover:bg-surface-container transition-all">
+                <span class="material-symbols-outlined text-on-surface-variant">help</span>
+            </button>
+            <button class="p-2 rounded-full hover:bg-surface-container transition-all">
+                <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+            </button>
+            <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+                <img alt="HR Manager Profile" data-alt="Professional avatar portrait of an HR manager"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYzxaCG9UspzkgQOIgJ495oDIEisR25TVHdBQ_j2TscwCxEMw7t2MctECHcPsZJCqF1KpNtiGpPymvlgsYv4OFf06rTZuYoI32q05UiL3GekICCuvdZhWti-YJ7pfJ-6rfXwGPzs8MTa0AWveMnjNa3rBjkN-j3Wr-XDTNckD45mGzWafKra1GIekbWKODM6PevNJ5Dj5f5bcIvHCNZk0VfYQiNdRxvh1Semng86qyCUseQL3yQIQ4LGh4T7yMovTNy5HFZAAzjyjq" />
+            </div>
+        </div>
+    </header>
+    <!-- SideNavBar - Execution from JSON -->
+    <aside
+        class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 bg-slate-50 border-r border-slate-200/15 z-40 pt-20">
+        <div class="px-6 py-4 mb-4">
+            <h2 class="font-headline font-black text-blue-800 text-lg uppercase tracking-tight">Academic Curator</h2>
+            <p class="text-xs text-slate-500 font-body">HR Admin Portal</p>
+        </div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-200 rounded-lg transition-all font-label text-sm"
+                href="#">
+                <span class="material-symbols-outlined text-lg">dashboard</span> Dashboard
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-blue-700 font-semibold bg-blue-50 rounded-lg transition-all font-label text-sm"
+                href="#">
+                <span class="material-symbols-outlined text-lg">library_books</span> Course Library
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-200 rounded-lg transition-all font-label text-sm"
+                href="#">
+                <span class="material-symbols-outlined text-lg">group</span> Employee Directory
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-200 rounded-lg transition-all font-label text-sm"
+                href="#">
+                <span class="material-symbols-outlined text-lg">assessment</span> Reports
+            </a>
+        </nav>
+        <div class="p-4 mt-auto space-y-4">
+            <button
+                class="w-full bg-secondary text-white py-3 rounded-xl font-headline font-bold text-sm shadow-lg shadow-blue-500/20 hover:opacity-90 transition-all">
+                New Assignment
+            </button>
+            <div class="space-y-1">
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200 rounded-lg transition-all font-label text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined text-lg">settings</span> Settings
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200 rounded-lg transition-all font-label text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined text-lg">contact_support</span> Support
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="lg:pl-64 pt-6 pb-32">
+        <div class="max-w-6xl mx-auto px-8">
+            <!-- Step Progress Indicator -->
+            <div class="flex items-center justify-between mb-12 max-w-2xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold shadow-md">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    <span class="text-xs font-semibold mt-2 text-secondary font-headline">Course</span>
+                </div>
+                <div class="step-line step-line-active"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold shadow-md">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    <span class="text-xs font-semibold mt-2 text-secondary font-headline">Employees</span>
+                </div>
+                <div class="step-line step-line-active"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-blue-100">
+                        3
+                    </div>
+                    <span class="text-xs font-bold mt-2 text-secondary font-headline">Rules</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-12 gap-8">
+                <!-- Left: Form Controls -->
+                <div class="col-span-12 lg:col-span-8 space-y-8">
+                    <header>
+                        <h1 class="text-3xl font-headline font-extrabold text-on-background tracking-tight">Set Deadline
+                            &amp; Training Rules</h1>
+                        <p class="text-on-surface-variant mt-2 max-w-lg">Define when the training should be completed
+                            and how employees are notified.</p>
+                    </header>
+                    <!-- Section 1: Completion Deadline -->
+                    <section
+                        class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-secondary">calendar_month</span>
+                            <h2 class="text-lg font-headline font-bold">Completion Deadline</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-on-surface mb-2">Due Date Picker</label>
+                                <div class="relative group max-w-md">
+                                    <span
+                                        class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">event</span>
+                                    <input
+                                        class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary/20 focus:bg-secondary-fixed transition-all font-body"
+                                        placeholder="Select date (e.g., Oct 24, 2024)" type="text" />
+                                </div>
+                            </div>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20"
+                                        type="checkbox" />
+                                </div>
+                                <span
+                                    class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">No
+                                    deadline (Ongoing training)</span>
+                            </label>
+                        </div>
+                    </section>
+                    <!-- Section 2: Reminder Settings -->
+                    <section
+                        class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-secondary">notifications_active</span>
+                            <h2 class="text-lg font-headline font-bold">Reminder Settings</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label
+                                class="flex items-center p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+                                <input checked=""
+                                    class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-4"
+                                    type="checkbox" />
+                                <span class="text-sm font-medium">3 days before due date</span>
+                            </label>
+                            <label
+                                class="flex items-center p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+                                <input
+                                    class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-4"
+                                    type="checkbox" />
+                                <span class="text-sm font-medium">1 day before due date</span>
+                            </label>
+                            <label
+                                class="flex items-center p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-all">
+                                <input checked=""
+                                    class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary/20 mr-4"
+                                    type="checkbox" />
+                                <span class="text-sm font-medium">On the due date</span>
+                            </label>
+                        </div>
+                    </section>
+                    <!-- Section 3: Training Status -->
+                    <section
+                        class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+                        <div class="flex items-center justify-between">
+                            <div class="space-y-1 pr-8">
+                                <h2 class="text-lg font-headline font-bold">Mandatory Training</h2>
+                                <p class="text-sm text-on-surface-variant">Mandatory training will appear in the
+                                    'Mandatory Compliance' section on employee dashboards.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" type="checkbox" value="" />
+                                <div
+                                    class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary">
+                                </div>
+                            </label>
+                        </div>
+                    </section>
+                    <!-- Section 4: Notifications -->
+                    <section
+                        class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-secondary">mail</span>
+                            <h2 class="text-lg font-headline font-bold">Communication</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-sm font-medium">Notify via email</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" value="" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-sm font-medium">Notify via platform notification</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" value="" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Right Sidebar: Preview Panel -->
+                <div class="col-span-12 lg:col-span-4 space-y-6">
+                    <div
+                        class="bg-surface-container-low p-6 rounded-2xl sticky top-24 border border-outline-variant/10">
+                        <h3
+                            class="text-sm font-headline font-bold text-on-surface-variant uppercase tracking-widest mb-6">
+                            Assignment Preview</h3>
+                        <!-- Selected Course Card -->
+                        <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm mb-6">
+                            <p class="text-[10px] font-bold text-secondary uppercase tracking-tight mb-2">Selected
+                                Course</p>
+                            <div class="flex gap-3">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden bg-slate-200 shrink-0">
+                                    <img alt="Leadership 101 Thumbnail" class="w-full h-full object-cover"
+                                        data-alt="Abstract professional training course cover design"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0tItDNEHotSWqH4v6gOQIBEZ9mv-wN8Y3nveidUlUfqZTZpR1dSc2rjaaIgK0JBesCysxgSt3qrJ3enxOkRcdg33XDM0PBo3oiHr98RBXaKdwyhAI4Bt9ewlzYw6PlgEa_8ASIKfIECmiMUM2vxF27wjn5tMZYPZlL_YxP0psqKxhAf_1gIsbgeaGlwsjCOnzIBWr0SrFJQC0ZTV9TED_N8Z0ey9-EcDzpeWZ_8JQndu0tTRzZ9JnVDQK4W-H_M2fGX536bKKtKni" />
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm leading-tight mb-1">Leadership 101: Foundational Skills
+                                    </h4>
+                                    <div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+                                        <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        <span>45 Minutes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Selected Recipients Card -->
+                        <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+                            <p class="text-[10px] font-bold text-secondary uppercase tracking-tight mb-2">Recipients</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-secondary text-lg">group</span>
+                                    </div>
+                                    <span class="text-sm font-bold">Marketing Team (12 employees)</span>
+                                </div>
+                                <div class="flex -space-x-2 pl-1 overflow-hidden">
+                                    <img alt="Employee" class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        data-alt="User avatar"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZu-Qan_sS6Ip5r2h1VXj--S7eJOFM2izuiPlquMobIrpErEpgis08D7R7h5_UbdNXwiwjnFTc3UmFQGtjjGBcEcSgmTISrQJ8Twd1U-ak90N4ltC28fgjKFbmp1jLssVxClk3Y9hJ6cuzw8Lj6i7UTlRz-uQnfbVMO9WQBvbS0B9jxAopCA-Nw3DYxVWS06OyJvYOYCfIuCc7QK2HmzGQkpHtS2x8DhFPtWMb2re-y_B0uPfG8sDGMJcxwLaTg5FaaoqNiHQymASV" />
+                                    <img alt="Employee" class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        data-alt="User avatar"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ7DyLWyu5nCwEg_HFlEyx35Q8uu5Ma7y3iU6S8HbsSgh3vO07AprhHRxF7WtB5SHuTMa0074DI7kHmSJktgq_WDFSBZ2ywygyB63GCN2ZF7B2Af3FKv2_wb8keu5pntHlMplZ0HCkIgJjtm_uc7vPbGYEVquHIuHnXpcQOs_W78zApTs8M_xHgVWT8vHaahH4wzGeZjd8Kkku3Xzsp4emXBGZ0xrI9Hli7KD-htlXJrYucYIe9k2BXqkGn21oQapcGSt_JsED8J9p" />
+                                    <img alt="Employee" class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        data-alt="User avatar"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfYRN862KMGcTWR2s-1gc9qnfITHDc92quMMhFJqwv9CfYP9sbbu0uITO-z5Za0PVIERZ8UQPGKugpH7AGih8kxiKtzX2OFVZF9hUSqUbjTTLSD2wtL5iVdxhn7gd5blBWuN9CunXbIgZN1qUfQmfDrHF4V8Tg3XLYpvpvXVGVgEVbJcFOiULlf0Ur4E56zgcKBxgBVgqZlGOvx3xi6IGD84aqwC4hm8vZMjOIFPmdSZ5DZgg8pnITKAqISAel0rPUWHl17dS5ykgL" />
+                                    <img alt="Employee" class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        data-alt="User avatar"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEFoDAu3IckDaHZV4JoftMCEF9OFCU4DbwIG-BmpIXO6KQtWE2APzZqlB8bH3hbi7nACCM2mktsPQzNgdP7UFlSiOtlLptKmKh2JUMTGQK1zN68NWpTbRK06PYrBGq6PSAHHsmnH40f4cIxDDOACsCsUPGxd6YuPUc8Gye8MGHcnSMruj1E3rMWPJSO3UMIc6GwiTcrjEazBS_XQxBd-3j83OyvjMgsFvZWuNVw4pNNWPsUefoAm-ERmpnLrJImbTNBCjQGwaLNc3r" />
+                                    <div
+                                        class="h-8 w-8 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold ring-2 ring-white">
+                                        +8</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mini Summary -->
+                        <div class="mt-8 pt-6 border-t border-outline-variant/20 space-y-3">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-on-surface-variant">Estimated Completion</span>
+                                <span class="font-bold">By Oct 24, 2024</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-on-surface-variant">Status</span>
+                                <span
+                                    class="px-2 py-0.5 bg-red-100 text-red-700 rounded-full font-bold">Mandatory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- BottomNavBar - Navigation Shell (Execution from JSON) -->
+    <footer
+        class="fixed bottom-0 w-full z-50 py-4 px-12 bg-white border-t border-slate-200/15 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-between items-center max-w-screen-2xl mx-auto">
+            <button
+                class="flex items-center gap-2 text-slate-600 hover:bg-slate-100 rounded-lg px-6 py-2 transition-all font-label text-sm">
+                <span class="material-symbols-outlined">close</span> Cancel
+            </button>
+            <div class="flex gap-4">
+                <button
+                    class="flex items-center gap-2 text-slate-600 hover:bg-slate-100 rounded-lg px-6 py-2 transition-all font-label text-sm">
+                    <span class="material-symbols-outlined">arrow_back</span> Back
+                </button>
+                <button
+                    class="flex items-center gap-2 bg-blue-600 text-white rounded-lg px-8 py-2 shadow-lg shadow-blue-500/30 active:scale-95 transition-transform font-label text-sm font-semibold">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: 'FILL' 1;">check_circle</span> Finish &amp; Assign
+                </button>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

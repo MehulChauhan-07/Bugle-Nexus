@@ -201,6 +201,16 @@ body {
   background: linear-gradient(135deg, #0B1F3A 0%, #1E3A8A 100%);
 }
 
+.text-gradient {
+  background: linear-gradient(135deg, #0051d5 0%, #316bf3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #0051d5 0%, #316bf3 100%);
+}
+
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
